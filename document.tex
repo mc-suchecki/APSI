@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{article}
+
+% basic packages
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{polski}
+\usepackage{graphicx}
+\usepackage[utf8x]{inputenc}
+
+% links
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+  \begin{center}
+
+    \textsc{\Large Politechnika Warszawska}\\[0.1cm]
+    \small Wydział Elektroniki i Technik Informacyjnych
+    \vfill
+
+    \textsc{\small Architektura i Projektowanie Systemów Informacyjnych}\\[0.1cm]
+    \Huge Tytuł\\[1.5cm]
+    \small Iteracja 1\\[2.5cm]
+
+    \vfill
+
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+        \emph{Zespół:}\\[0.1cm]
+        Jakub \textsc{Borowski}\\
+        Maciej \textsc{Suchecki}\\
+        Daniel \textsc{Waślicki}\\
+        Jacek \textsc{Witkowski}\\
+      \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+        \emph{Prowadzący:}\\[0.1cm]
+        dr~inż. Andrzej \textsc{Ciemski}\\[1cm]
+      \end{flushright}
+    \end{minipage}
+
+    \vfill
+    {\large \today}
+
+  \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\newpage
+\input{tex/introduction.tex}
+\input{tex/scope-of-implementation.tex}
+\input{tex/requirements.tex}
+\input{tex/analytic-model.tex}
+\input{tex/project-solutions.tex}
+\input{tex/user-interface.tex}
+
+\end{document}
