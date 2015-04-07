@@ -1,3 +1,44 @@
 \section{Zakres realizacji}
+Niniejszy rozdział jest poświęcony opisowi zakładanego sposobu realizacji projektu. Zostają tutaj zdefiniowane zespoły, ich zadania oraz role, a~także uściślany jest wstępny zarys technologiczny projektu.
 
-% TODO
+\subsection{Realizacja projektu}
+Projekt będzie realizowany w~siedzibie firmy \emph{Four Developers~sp.~z~o.o.} z~wykorzystaniem metodyki \emph{Scrum}. Zleceniodawca zobowiązał się do~oddelegowania jednego z~doświadczonych pracowników, który zna specyfikę projektu oraz wymagania, które stawia przed nim Zleceniodawca. Osoba ta~będzie uczestniczyła w~pracach zespołu jako \emph{Product Owner}. Pozostałych członków zespołu zapewni firma \emph{Four Developers}.
+
+\subsection{Zarys technologiczny}
+Aplikacja tworzona w~ramach projektu zostanie zrealizowana jako aplikacja z~dostępem z~poziomu przeglądarki internetowej. Dzięki temu, klienci firmy \emph{Money Solutions} będą mieli ułatwiony dostęp do~aplikacji po~wykupieniu do~niej dostępu. Równocześnie, zarządzanie użytkownikami oraz danymi będzie prostsze z~racji na scentralizowanie danych na~serwerze bazodanowym.\\
+
+Ta konkretna aplikacja będzie realizowana w architekturze trójwarstwowej -- ponieważ jest to najczęściej wykorzystywana architektura, kiery rozważamy aplikacje z~dostępem poprzez przeglądarkę internetową. Wspomniana architektura jest przykładem architektury klient-serwer. Aplikacja jest podzielona na warstwy, co sprawia, że rozwój i~ewentualne modyfikacje są łatwiejsze. Architektura ta składa się z trzech warstw: warstwy danych, warstwy aplikacyjnej  (logiki biznesowej), oraz warstwy prezentacji. Opis każdej z~warstw znajduje się poniżej:
+
+\begin{itemize}
+   \item Warstwa prezentacji -- jedyna widoczna dla użytkownika -- zapewnia interfejs dla aplikacji. Ze względu na~założenie projektowe -- dostęp za~pośrednictwem przeglądarki internetowej -- stos technologiczny sprowadza się do HTML, CSS oraz JavaScript.
+   \item Warstwa logiki biznesowej -- poziom odpowiedzialny za~komunikację między dwoma innymi warstwami -- danych oraz prezentacji.
+   \item Warstwa danych -- używana do~tworzenia zapytań, przechowywania i~zarządzania danymi aplikacji. Składa się ona z~systemu zarządzania bazą danych oraz biblioteki, która zapewnia dedykowane API dostępu do~danych zawartych w~bazie danych z~poziomu kodu aplikacji.
+\end{itemize}
+
+\newpage
+\subsection{Zespół}
+W~skład zespołu będą wchodzili -- oprócz wspomnianego wcześniej \emph{Product Ownera} -- analitycy oraz projektanci.
+
+\subsubsection{Analitycy -- wymagania}
+Analitycy będą zajmować się prowadzeniem analizy biznesowej, badaniem potrzeb klientów, projektując rozwiązania dla systemu. Każdy z~analityków jest odpowiedzialny za~sprecyzowanie wymagań (zarówno funkcjonalnych jak i~niefunkcjonalnych). Jego zadaniem jest również dbałość o~ich prawidłową realizację. To głównie z~analitykami będzie współpracował \emph{Product Owner}.\\
+
+Główne zadania:
+\begin{itemize}
+  \item analiza środowiska systemowego,
+  \item określenie wymagań stawianych przed systemem,
+  \item tworzenie specyfikacji wymagań,
+  \item tworzenie dokumentacji projektowej,
+  \item tworzenie planu testów.
+\end{itemize}
+
+\subsubsection{Projektanci -- wymagania}
+Każdy z~projektantów będzie odpowiedzialny za stworzenie architektury projektowanego systemu oraz udokumentowanie jej. Wyniki prac tego zespołu będą kluczowe dla prac programistów implementujących właściwy system.\\
+
+Główne zadania:
+\begin{itemize}
+  \item utworzenie projektu systemu,
+  \item utworzenie dokumentacji technicznej projektu systemu,
+  \item wybór technologii oraz metod realizacji systemu,
+  \item dostosowywanie wymagań do postępów prac.
+\end{itemize}
+
