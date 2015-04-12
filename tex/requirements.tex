@@ -5,6 +5,7 @@ W tej sekcji znajduje się lista wymagań, jakie spełniać powinien budowany sy
 \subsubsection{Użytkownicy}
 Wymagania funkcjonalne dotyczące zarządzaniem użytkownikami w~systemie.
 \begin{itemize}
+  \item logowanie do aplikacji,
   \item wyświetlanie listy użytkowników,
   \item dodawanie nowego użytkownika,
   \item edycja danych użytkownika,
@@ -17,7 +18,7 @@ Wymagania funkcjonalne dotyczące zarządzaniem kontami pieniężnymi w~systemie
   \item wyświetlanie listy kont,
   \item dodawanie nowego konta,
   \item edycja danych konta,
-  \item oznaczenie konta jako nieaktywne.
+  \item usunięcie konta.
 \end{itemize}
 
 \subsubsection{Transakcje}
@@ -28,16 +29,15 @@ Wymagania funkcjonalne dotyczące zarządzaniem transakcjami w~systemie.
   \item edycja danych transakcji,
   \item usunięcie transakcji.
 \end{itemize}
-(dodawanie, usuwanie, modyfikacja)
 
 \subsubsection{Budżet}
-Wymagania funkcjonalne dotyczące zarządzaniem budżetami w~systemie.\\
+Wymagania funkcjonalne dotyczące zarządzaniem budżetami w~systemie.
 \begin{itemize}
-  \item wyświetlenie budżetów ustawionych w systemie
-  \item ustawienie budżetu dla określonego użytkownika
-  \item modyfikacja budżetu sumarycznego dla wszystkich użytkowników
-  \item modyfikacja budżetu określonego użytkownika
-  \item usunięcie budżetu określonego użytkownika
+  \item wyświetlenie budżetów ustawionych w~systemie,
+  \item ustawienie budżetu dla określonego użytkownika,
+  \item modyfikacja budżetu sumarycznego dla wszystkich użytkowników,
+  \item modyfikacja budżetu określonego użytkownika,
+  \item usunięcie budżetu określonego użytkownika.
 \end{itemize}
 
 \subsubsection{Raporty}
@@ -47,210 +47,272 @@ Wymagania funkcjonalne dotyczące generowania raportów w~systemie.
 
 \subsubsection{Opis przypadków użycia -- użytkownicy}
 % TODO Kuba
+\paragraph{Logowanie do~aplikacji}
+\label{par:login}
 
 \subsubsection{Opis przypadków użycia -- konta}
-% TODO Maciek
+\paragraph{Wyświetlanie listy kont\newline}
+\label{par:accountsView}
+Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
+\indent Funkcja generalizująca dla~\ref{par:accountCreate},~\ref{par:accountEdit} oraz~\ref{par:accountDelete}.\\\\
+\textit{Scenariusz główny}
+\begin{enumerate}
+  \item Użytkownik otwiera stronę ,,Konta''.
+  \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
+  \item Aplikacja wyświetla konta należące do zalogowanego użytkownika.
+\end{enumerate}
+
+\paragraph{Utworzenie nowego konta\newline}
+\label{par:accountCreate}
+Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\\\
+\textit{Scenariusz główny:}
+\begin{enumerate}
+  \item[1-3.] Jak w~funkcji generalizującej~\ref{par:accountsView}~--~Wyświetlanie listy kont.
+  \item[4.] Użytkownik klika przycisk ,,Dodaj nowe konto''.
+  \item[5.] Aplikacja wyświetla okno zawierające pola z~danymi dla nowego konta.
+  \item[6.] Użytkownik wprowadza nazwę konta, początkowe saldo, wybiera walutę, typ konta i~klika przycisk ,,Dodaj''.
+  \item[7.] System weryfikuje wprowadzone dane (np. czy para użytkownik-nazwa jest unikatowa).
+  \item[8.] Jeśli dane są~prawidłowe, system tworzy nowe konto i~powiadamia o~tym użytkownika.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o wykrytym błędzie.
+  \item[9.] Użytkownik poprawia dane i~wciska przycisk ,,Dodaj''.
+  \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
+\end{enumerate}
+
+\paragraph{Edycja danych konta\newline}
+\label{par:accountEdit}
+Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\\\
+\textit{Scenariusz główny:}
+\begin{enumerate}
+  \item[1-3.] As in generalizing function~\ref{par:accountsView}~--~Viewing accounts list.
+  \item[4.] Użytkownik zaznacza jedno z~kont i~klika przycisk ,,Edytuj'' obok niego.
+  \item[5.] Aplikacja wyświetla okno zawierające dane zaznaczonego konta.
+  \item[6.] Użytkownik edytuje nazwę konta, walutę lub typ konta i~klika przycisk ,,Zapisz''.
+  \item[7.] System weryfikuje wprowadzone dane (np. czy para użytkownik-nazwa jest unikatowa).
+  \item[8.] Jeśli dane są~prawidłowe, system edytuje konto i~powiadamia o~tym użytkownika.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o wykrytym błędzie.
+  \item[9.] Użytkownik poprawia dane i~wciska przycisk ,,Zapisz''.
+  \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
+\end{enumerate}
+
+\paragraph{Usunięcie konta\newline}
+\label{par:accountDelete}
+Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\\\
+\textit{Scenariusz główny:}
+\begin{enumerate}
+  \item[1-3.] As in generalizing function~\ref{par:accountsView}~--~Viewing accounts list.
+  \item[4.] Użytkownik zaznacza jedno z~kont i~klika przycisk ,,Usuń'' obok niego.
+  \item[5.] Aplikacja wyświetla okno potwierdzenia.
+  \item[6.] Użytkownik klika przycisk ,,Usuń'' w~wyświetlonym oknie.
+  \item[7.] Aplikacja zamyka okno, usuwa konto i~odświeża listę kont.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+\begin{enumerate}
+  \item[1-5.] Jak w~scenariuszu głównym.
+  \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
+  \item[7.] Aplikacja zamyka okno.
+\end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- transakcje}
-\textbf{Wyświetlanie listy transakcji}
-
-Główny scenariusz:
-
+\paragraph{Wyświetlanie listy transakcji\newline}
+\label{par:transactionsView}
+Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
+\indent Funkcja generalizująca dla~\ref{par:transactionCreate},~\ref{par:transactionEdit} oraz~\ref{par:transactionDelete}.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item Użytkownik otwiera stronę "Transakcje"
-  \item Jeśli użytkownik nie jest zalogowany, aplikacja żąda zalogowania się poprzez (tutaj wypadało by wstawić scenariusz z logowaniem, ale ni ma)
-  \item Aplikacja wyświetla listę transakcji powiązanych z kontem danego użytkownika
+  \item Użytkownik otwiera stronę ,,Transakcje''.
+  \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
+  \item Aplikacja wyświetla listę transakcji powiązanych z kontem danego użytkownika.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- filtrowanie transakcji:}
+\begin{enumerate}
+  \item[1-3.] Jak w~scenariuszu głównym.
+  \item[4.] Użytkownik wprowadza parametry filtrowania jak nazwa użytkownika, kategoria albo data transakcji.
+  \item[5.] Aplikacja odświeża listę transakcji, wyświetlając tylko te, które pasują do podanych filtrów.
 \end{enumerate}
 
-Scenariusz alternatywny:
-
+\paragraph{Utworzenie nowej transakcji\newline}
+\label{par:transactionCreate}
+Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 3 jak w scenariuszu głównym
-  \item Użytkownik wprowadza parametry filtrowania jak nazwa użytkownika, kategoria albo data transakcji
-  \item Aplikacja odświeża listę transkacji wyświetlając tylko te, które pasują do podanych filtrów
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
+  \item[4.] Użytkownik wciska przycisk ,,Dodaj transakcję''.
+  \item[5.] Aplikacja wyświetla okno z~polami do~wprowadzania danych dotyczących transakcji.
+  \item[6.] Użytkownik wyświetla rodzaj transakcji (wpływ/wydatek/transfer), konto od/do, wprowadza wartość, datę, opis i~klika przycisk ,,Dodaj''.
+  \item[7.] System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy).
+  \item[8.] Jeśli dane są poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o wykrytym błędzie.
+  \item[9.] Użytkownik poprawia dane i~wciska przycisk ,,Dodaj''.
+  \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
-\textbf{Utworzenie nowej transakcji}
-
-Główny scenariusz:
+\paragraph{Edycja transakcji\newline}
+\label{par:transactionEdit}
+Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlenie listy transakcji"
-  \item Użytkownik wciska przycisk "Dodaj transkację"
-  \item Aplikacja wyświetla okno z polami do wprowadzania danych dotyczących transakcji
-  \item Użytkownik wyświetla rodzaj transakcji (wpływ/wydatek/transfer), konta od/do, wprowadza wartość, datę, opis i klika przycisk "Dodaj"
-  \item System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy)
-  \item Jeśli dane są poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na koncie i informuje użytkownika
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
+  \item[4.] Użytkownik wybiera jedną z~transakcji i~wciska przycisk ,,Edytuj''.
+  \item[5.] Aplikacja wyświetla okno z~informacjami o~transakcji.
+  \item[6.] Użytkownik modyfikuje dane transakcji (wpływ/wydatek/transfer), konto od/do, wprowadza wartość, datę, opis i~klika przycisk ,,Zapisz''.
+  \item[7.] System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy).
+  \item[8.] Jeśli dane są~poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o~wykrytym błędzie i~czeka na~poprawkę.
+  \item[9.] Użytkownik poprawia dane i~wciska przycisk ,,Zapisz''.
+  \item[10.] Powrót do~kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
-Scenariusz alternatywny - niepoprawne dane:
+\paragraph{Usuwanie transakcji\newline}
+\label{par:transactionDelete}
+Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 7 jak w scenariuszu głównym
-  \item System wyświetla informację o wykrytym błędzie i czeka na poprawkę
-  \item Użytkownik poprawia dane i wciska przycisk "Dodaj"
-  \item Powrót do kroku 7 ze scenariusza głównego
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
+  \item[4.] Użytkownik wybiera jedną z~transakcji i~wciska przycisk ,,Usuń''.
+  \item[5.] Aplikacja wyświetla okienko wymagające potwierdzenia operacji.
+  \item[6.] Użytkownik potwierdza operację wciskając przycisk ,,Usuń''.
+  \item[7.] Aplikacja zamyka okienko, usuwa transakcję, przelicza ilość pieniędzy na koncie i odświeża listę transakcji.
 \end{enumerate}
-
-\textbf{Edycja transkacji - scenariusz specjalistyczny dla scenariusza "Wyświetlanie listy transkacji"}
-
-Główny scenariusz:
+\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlenie listy transakcji"
-  \item Użytkownik wybiera jedną z transkacji i wciska przycisk "Edytuj"
-  \item Aplikacja wyświetla okno z informacjami o transakcji
-  \item Użytkownik modyfikuje dane transakcji (wpływ/wydatek/transfer), konta od/do, wprowadza wartość, datę, opis i klika przycisk "Zapisz"
-  \item System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy)
-  \item Jeśli dane są poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na koncie i informuje użytkownika
-\end{enumerate}
-
-Scenariusz alternatywny - niepoprawne dane:
-\begin{enumerate}
-  \item 1 - 7 jak w scenariuszu głównym
-  \item System wyświetla informację o wykrytym błędzie i czeka na poprawkę
-  \item Użytkownik poprawia dane i wciska przycisk "Zapisz"
-  \item Powrót do kroku 7 ze scenariusza głównego
-\end{enumerate}
-
-/textbf{Usuwanie transkacji - scenariusz specjalistyczny dla scenariusza "Wyświetlanie listy transakcji"}
-
-Główny scenariusz:
-
-\begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlenie listy transkacji"
-  \item Użytkownik wybiera jedną z transkacji i wciska przycisk "Usuń"
-  \item aplikacja wyświetla okienko wymagające potwierdzenia operacji
-  \item Użytkownik potwierdza operację wciskając przycisk "Usuń"
-  \item Aplikacja zamyka okienko, usuwa transakcję, przelicza ilość pieniędzy na koncie i odświeża listę transakcji.
-\end{enumerate}
-
-Scenariusz alternatywny - użytkownik przerywa operację:
-
-\begin{enumerate}
-  \item 1 - 5 jak w scenariuszu głównym
-  \item Użytkownik wciska przycisk "Anuluj"
-  \item Aplikacja zamyka okno
+  \item[1-5.] Jak w~scenariuszu głównym.
+  \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
+  \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- budżet}
-
-\textbf{Wyświetlenie budżetów ustawionych w systemie}
-
-Główny scenariusz:
+\paragraph{Wyświetlenie budżetów ustawionych w systemie\newline}
+\label{par:budgetsList}
+Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
+\indent Funkcja generalizująca dla~\ref{par:userBudget},~\ref{par:usersBudget},~\ref{par:userBudgetEdit} oraz~\ref{par:userBudgetDelete}.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item Użytkownik otwiera stronę "Budżety"
-  \item Jeśli użytkownik nie jest zalogowany, aplikacja żąda zalogowania się poprzez (tutaj wypadało by wstawić scenariusz z logowaniem, ale ni ma)
-  \item Aplikacja wyświetla budżet sumaryczny dla wszystkich użytkowników oraz listę użytkowników z budżetami dla każdego z nich
+  \item Użytkownik otwiera stronę ,,Budżety''.
+  \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
+  \item Aplikacja wyświetla budżet sumaryczny dla wszystkich użytkowników oraz listę użytkowników z~budżetami dla każdego z~nich.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- filtrowanie wyników:}
+\begin{enumerate}
+  \item[1-3.] Jak w~scenariuszu głównym.
+  \item[4.] Użytkownik wprowadza nazwę konta, którego budżet ma~zostać wyświetlony i~wciska ,,Enter''.
+  \item[5.] Aplikacja odświeża listę budżetów wyświetlając tylko jeden dla podanego użytkownika.
 \end{enumerate}
 
-Scenariusz alternatywny:
-
+\paragraph{Ustawienie budżetu dla określonego użytkownika\newline}
+\label{par:userBudget}
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 3 jak w scenariuszu głównym
-  \item Użytkownik wprowadza nazwę konta, którego budżet ma zostać wyświetlony i wciska "Enter"i
-  \item Aplikacja odświeża listę budżetów wyświetlając tylko jeden dla podanego użytkownika
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
+  \item[4.] Użytkownik wciska przycisk ,,Dodaj''.
+  \item[5.] Aplikacja wyświetla okno z możliwością wyboru konta i~wprowadzenia nowego budżetu.
+  \item[6.] Użytkownik wybiera konto, wprowadza nowy budżet i~wciska przycisk "Dodaj".
+  \item[7.] Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna).
+  \item[8.] Jeśli wartość jest poprawna system zapisuje nową wartość budżetu, zamyka okno i~aktualizuje stronę z~budżetami.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+\begin{enumerate}
+  \item[1-5.] Jak w~scenariuszu głównym.
+  \item[6.] Użytkownik wciska przycisk "Anuluj".
+  \item[7.] Aplikacja zamyka okno.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o~niepoprawnych danych.
+  \item[9.] Użytkownik wprowadza nową wartość i~wciska przycisk ,,Dodaj''.
+  \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
-\textbf{Ustawienie budżetu dla określonego użytkownika}
-
-Scenariusz główny:
+\paragraph{Modyfikacja budżetu sumarycznego dla wszystkich użytkowników\newline}
+\label{par:usersBudget}
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlnie budżetów ustawionych w systemie"
-  \item Użytkownik wciska przycisk "Dodaj"
-  \item Aplikacja wyświetla okno z możliwością wyboru konta i wprowadzenia nowego budżetu
-  \item Użytkownik wybiera konto, wprowadza nowy budżet i wciska przycisk "Dodaj"
-  \item Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna)
-  \item Jeśli wartość jest poprawna system zapisuje nową wartość budżetu, zamyka okno i aktualizuje stronę z budżetami.
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
+  \item[4.] Użytkownik wciska przycisk "Edytuj" obok pola wyświetlającego budżet sumaryczny.
+  \item[5.] Aplikacja wyświetla okno z~możliwością wprowadzenia nowego budżetu sumarycznego.
+  \item[6.] Użytkownik wprowadza nowy budżet i~wciska przycisk ,,Zapisz''.
+  \item[7.] Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna).
+  \item[8.] Jeśli wartość jest poprawna, system zapisuje nową wartość budżetu, zamyka okno i~aktualizuje stronę z budżetami.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+\begin{enumerate}
+  \item[1-5.] Jak w~scenariuszu głównym.
+  \item[6.] Użytkownik wciska przycisk "Anuluj".
+  \item[7.] Aplikacja zamyka okno.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o~niepoprawnych danych.
+  \item[9.] Użytkownik wprowadza nową wartość i~wciska przycisk ,,Zapisz''.
+  \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
-Scenariusz alternatywny - użytkownik przerywa operację:
+\paragraph{Modyfikacja budżetu dla określonego użytkownika\newline}
+\label{par:userBudgetEdit}
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 5 jak w scenariuszu głównym
-  \item Użytkownik wciska przycisk "Anuluj"
-  \item Aplikacja zamyka okno
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
+  \item[4.] Użytkownik wciska przycisk ,,Edytuj'' obok pola wyświetlającego budżet dla określonego użytkownika.
+  \item[5.] Aplikacja wyświetla okno z~możliwością wprowadzenia nowego budżetu.
+  \item[6.] Użytkownik wprowadza nowy budżet i~wciska przycisk ,,Zapisz''.
+  \item[7.] Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna).
+  \item[8.] Jeśli wartość jest poprawna, system zapisuje nową wartość budżetu, zamyka okno i~aktualizuje stronę z~budżetami.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+\begin{enumerate}
+  \item[1-5.] Jak w~scenariuszu głównym.
+  \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
+  \item[7.] Aplikacja zamyka okno.
+\end{enumerate}
+\textit{Scenariusz alternatywny -- niepoprawne dane:}
+\begin{enumerate}
+  \item[1-7.] Jak w~scenariuszu głównym.
+  \item[8.] System wyświetla informację o~niepoprawnych danych.
+  \item[9.] Użytkownik wprowadza nową wartość i~wciska przycisk ,,Zapisz''.
+  \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
-Scenariusz alternatywny - wprowadzona wartość jest niepoprawna:
+\paragraph{Usunięcie budżetu dla określonego użytkownika\newline}
+\label{par:userBudgetDelete}
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
+\textit{Scenariusz główny:}
 \begin{enumerate}
-  \item 1 - 7 jak w scenariuszu głównym
-  \item System wyświetla informację o niepoprawnych danych i czeka na ich poprawienie
-  \item Użytkownik wprowadza nową wartość i wciska przycisk "Dodaj"
-  \item Powrót do kroku 7 ze scenariusza głównego
+  \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
+  \item[4.] Użytkownik wciska przycisk ,,Usuń'' obok pola wyświetlającego budżet dla określonego użytkownika.
+  \item[5.] Aplikacja wyświetla okno wymagające potwierdzenia operacji.
+  \item[6.] Użytkownik potwierdza operację wciskając przycisk ,,Usuń''.
+  \item[7.] System usuwa budżet dla określonego użytkownika, zamyka okno i~odświeża stronę z~budżetami.
 \end{enumerate}
-
- /textbf{Modyfikacja budżetu sumarycznego dla wszystkich użytkowników}
-
-Główny scenariusz:
+\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlnie budżetów ustawionych w systemie"
-  \item Użytkownik wciska przycisk "Edytuj" obok pola wyświetlającego budżet sumaryczny
-  \item Aplikacja wyświetla okno z możliwością wprowadzenia nowego budżetu sumarycznego
-  \item Użytkownik wprowadza nowy budżet i wciska przycisk "Zapisz"
-  \item Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna)
-  \item Jeśli wartość jest poprawna system zapisuje nową wartość budżetu, zamyka okno i aktualizuje stronę z budżetami.
-\end{enumerate}
-
-Scenariusz alternatywny - użytkownik przerywa operację:
-\begin{enumerate}
-  \item 1 - 5 jak w scenariuszu głównym
-  \item Użytkownik wciska przycisk "Anuluj"
-  \item Aplikacja zamyka okno
-\end{enumerate}
-
-Scenariusz alternatywny - wprowadzona wartość jest niepoprawna:
-\begin{enumerate}
-  \item 1 - 7 jak w scenariuszu głównym
-  \item System wyświetla informację o niepoprawnych danych i czeka na ich poprawienie
-  \item Użytkownik wprowadza nową wartość i wciska przycisk "Zapisz"
-  \item Powrót do kroku 7 ze scenariusza głównego
-\end{enumerate}
-
-
-\textbf{Modyfikacja budżetu dla określonego użytkownika}
-
-Scenariusz główny:
-\begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlnie budżetów ustawionych w systemie"
-  \item Użytkownik wciska przycisk "Edytuj" obok pola wyświetlającego budżet dla określonego użytkownika
-  \item Aplikacja wyświetla okno z możliwością wprowadzenia nowego budżetu
-  \item Użytkownik wprowadza nowy budżet i wciska przycisk "Zapisz"
-  \item Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna)
-  \item Jeśli wartość jest poprawna system zapisuje nową wartość budżetu, zamyka okno i aktualizuje stronę z budżetami.
-\end{enumerate}
-
-Scenariusz alternatywny - użytkownik przerywa operację:
-\begin{enumerate}
-  \item 1 - 5 jak w scenariuszu głównym
-  \item Użytkownik wciska przycisk "Anuluj"
-  \item Aplikacja zamyka okno
-\end{enumerate}
-
-Scenariusz alternatywny - wprowadzona wartość jest niepoprawna:
-\begin{enumerate}
-  \item 1 - 7 jak w scenariuszu głównym
-  \item System wyświetla informację o niepoprawnych danych i czeka na ich poprawienie
-  \item Użytkownik wprowadza nową wartość i wciska przycisk "Zapisz"
-  \item Powrót do kroku 7 ze scenariusza głównego
-\end{enumerate}
-
-\textbf{Usunięcie budżetu dla określonego użytkownika}
-
-Scenariusz główny:
-\begin{enumerate}
-  \item 1 - 3 jak w scenariuszu generalizującym "Wyświetlnie budżetów ustawionych w systemie"
-  \item Użytkownik wciska przycisk "Usuń" obok pola wyświetlającego budżet dla określonego użytkownika
-  \item Aplikacja wyświetla okno wymagające potwierdzenia operacji
-  \item Użytkownik potwierdza operację wciskając przycisk "Usuń"
-  \item System usuwa budżet dla określonego użytkownika, zamyka okno i odświeża stronę z budżetami
-\end{enumerate}
-
-Scenariusz alternatywny - użytkownik przerywa operację:
-\begin{enumerate}
-  \item 1 - 5 jak w scenariuszu głównym
-  \item Użytkownik wciska przycisk "Anuluj"
-  \item Aplikacja zamyka okno
+  \item[1-5.] Jak w~scenariuszu głównym.
+  \item[6.] Użytkownik klika przycisk ,,Anuluj''.
+  \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- raporty}
 % TODO Kombajn
 
+\newpage
 \subsection{Wymagania niefunkcjonalne}
 % TODO Kombajn
