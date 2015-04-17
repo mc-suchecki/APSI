@@ -46,9 +46,123 @@ Wymagania funkcjonalne dotyczące generowania raportów w~systemie.
 (generowanie raportów/wykresów)
 
 \subsubsection{Opis przypadków użycia -- użytkownicy}
-% TODO Kuba
-\paragraph{Logowanie do~aplikacji}
+
+\paragraph{Dodawanie nowego użytkownika\newline}
+\label{par:register}
+
+\textit{Scenariusz główny}
+
+\begin{enumerate}
+\item Użytkownik otwiera stronę ,,Logowanie/Rejestracja''.
+\item Użytkownik wybiera opcję ,,Rejestracja'' i~wprowadza dane: imię, nazwisko, adres e-mail, oraz hasło.
+\item Użytkownik naciska przycisk ,,Zarejestruj''.
+\item Aplikacja sprawdza wprowadzone dane.
+\item Jeżeli nie wystąpiły żadne błędy, system wysyła aktywacyjną wiadomość e-mail na adres wprowadzony przez
+użytkownika i~informuje go, aby go odebrał.
+\item Użytkownik otwiera wiadomość i~klika w~link aktywacyjny.
+\item Aplikacja rejestruje nowego użytkownika i~przekierowuje go do strony logowania.
+\end{enumerate}
+
+\textit{Scenariusz alternatywny -- niepoprawne dane}
+
+\begin{enumerate}
+\item[1-4.] Jak w~scenariuszu głównym.
+\item[5.] System wyświetla informacje o~wykrytym błędzie.
+\item[6.] Użytkownik poprawia wprowadzone dane i~naciska przycisk ,,Zarejestruj''.
+\item[7.] Powrót do kroku 4.~ze scenariusza głównego.
+\end{enumerate}
+
+\paragraph{Logowanie do~aplikacji\newline}
 \label{par:login}
+
+\textit{Scenariusz główny}
+
+\begin{enumerate}
+\item Użytkownik otwiera stronę ,,Logowanie/Rejestracja''.
+\item Użytkownik wybiera opcję ,,Logowanie'' i~wprowadza dane:~adres e-mail oraz hasło.
+\item Użytkownik naciska przycisk ,,Zaloguj''.
+\item Aplikacja sprawdza wprowadzone dane.
+\item Jeżeli para (e-mail,~hasło) znajduje się w~systemie, aplikacja przekierowuje użytkownika na docelową stronę.
+\end{enumerate}
+
+\textit{Scenariusz alternatywny -- niepoprawne dane}
+
+\begin{enumerate}
+\item[1-4.] Jak w~scenariuszu głównym.
+\item[5.] System wyświetla informacje o~wykrytym błędzie.
+\item[6.] Użytkownik poprawia wprowadzone dane i~naciska przycisk ,,Login''.
+\item[7.] Powrót do kroku 4.~ze scenariusza głównego.
+\end{enumerate}
+
+\paragraph{Wyświetlanie listy użytkowników\newline}
+\label{par:userList}
+Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
+
+\textit{Scenariusz główny}
+
+\begin{enumerate}
+\item Użytkownik otwiera stronę ,,Użytkownicy''.
+\item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
+\item Aplikacja wyświetla użytkowników zarejestrowanych w~systemie.
+\end{enumerate}
+
+\paragraph{Edycja danych użytkownika\newline}
+\label{par:editUser}
+Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
+
+\textit{Scenariusz główny}
+
+\begin{enumerate}
+\item Użytkownik loguje się do aplikacji, tak jak w~scenariuszu~\ref{par:login}~--~Logowanie do aplikacji.
+\item Użytkownik otwiera stronę ,,Profil''.
+\item Użytkownik naciska przycisk ,,Edytuj profil''.
+\item Aplikacja wyświetla okno zawierające dane użytkownika.
+\item Użytkownik edytuje imię, nazwisko, adres e-mail lub hasło i~naciska przycisk ,,Zapisz''.
+\item System prosi użytkownika o~potwierdzenie zmiany poprzez wpisanie starego hasła.
+\item System weryfikuje wprowadzone dane.
+\item Jeżeli dane są prawidłowe, system edytuje dane użytkownika.
+\end{enumerate}
+
+\textit{Scenariusz alternatywny -- niepoprawne dane}
+
+\begin{enumerate}
+\item[1-7.] Jak w~scenariuszu głównym.
+\item[8.] System wyświetla informacje o~wykrytym błędzie.
+\item[9.] Użytkownik poprawia dane i~naciska przycisk ,,Zapisz''.
+\item[10.] Powrót do kroku 7.~ze scenariusza głównego.
+\end{enumerate}
+
+\paragraph{Usunięcie użytkownika\newline}
+\label{par:deleteUser}
+Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
+
+\textit{Scenariusz główny}
+
+\begin{enumerate}
+\item Użytkownik loguje się do aplikacji, tak jak w~scenariuszu~\ref{par:login}~--~Logowanie do aplikacji.
+\item Użytkownik otwiera stronę ,,Profil''.
+\item Użytkownik naciska przycisk ,,Usuń użytkownika''.
+\item System prosi użytkownika o~potwierdzenie decyzji poprzez wpisanie hasła i~naciśnięcie przycisku ,,Usuń''.
+\item System weryfikuje poprawność hasła.
+\item Jeżeli hasło jest zgodne, aplikacja usuwa informacje o~użytkowniku i~następuje wylogowanie.
+\end{enumerate}
+
+\textit{Scenariusz alternatywny -- użytkownik nie potwierdza decyzji}
+
+\begin{enumerate}
+\item[1-4.] Jak w~scenariuszu głównym.
+\item[5.] Użytkownik nacisnął przycisk ,,Anuluj''.
+\item[6.] System powraca do strony ,,Profil''.
+\end{enumerate}
+
+\textit{Scenariusz alternatywny -- niepoprawne dane}
+
+\begin{enumerate}
+\item[1-4.] Jak w~scenariuszu głównym.
+\item[5.] System wyświetla informację o~wykrytym błędzie.
+\item[6.] Użytkownik poprawia hasło i~naciska przycisk ,,Usuń''.
+\item[7.] Powrót do kroku 5.~ze scenariusza głównego.
+\end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- konta}
 \paragraph{Wyświetlanie listy kont\newline}
