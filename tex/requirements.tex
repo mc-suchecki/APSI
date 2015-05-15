@@ -239,8 +239,29 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 \end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- transakcje}
-\paragraph{Wyświetlanie listy transakcji\newline}
 \label{par:transactionsView}
+\paragraph{Wyświetlanie listy transakcji\newline}
+Opis słowny - użytkownik będzie chciał wyświetlić listę transakcji zarejestrowanych w systemie.
+Oprócz zwykłej listy zebranych danych, potrzebna jest możliwość filtrowania, co ułatwi użytkownikowi
+przeglądanie listy.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami,
+	wprowadzenie parametrów filtrowania
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Żądanie filtrowania danych
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Wyświetlona lista żądanych transakcji
+	\\
+	\hline
+ \end{longtable}
 Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:transactionCreate},~\ref{par:transactionEdit} oraz~\ref{par:transactionDelete}.\\\\
 \textit{Scenariusz główny:}
@@ -256,15 +277,44 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
   \item[5.] Aplikacja odświeża listę transakcji, wyświetlając tylko te, które pasują do podanych filtrów.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{wyswietl_transakcje.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Utworzenie nowej transakcji\newline}
 \label{par:transactionCreate}
+\paragraph{Wyświetlanie listy transakcji\newline}
+Opis słowny - jedna z podstawowych funkcjonalności systemu to dodawanie
+transkacji, których koszty będą sumowane i nadzorowane. Akcje te mają miejsce
+gdy użytkownik chce dodać wydatek do systemu.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami i wciśnięcie dodaj,
+	uzupełnienie danych i zapisanie
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Dodanie nowej transkacji
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
   \item[4.] Użytkownik wciska przycisk ,,Dodaj transakcję''.
   \item[5.] Aplikacja wyświetla okno z~polami do~wprowadzania danych dotyczących transakcji.
-  \item[6.] Użytkownik wyświetla rodzaj transakcji (wpływ/wydatek/transfer), konto od/do, wprowadza wartość, datę, opis i~klika przycisk ,,Dodaj''.
+  \item[6.] Użytkownik wprowadza rodzaj transakcji (wpływ/wydatek/transfer), konto od/do, wprowadza wartość, datę, opis i~klika przycisk ,,Dodaj''.
   \item[7.] System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy).
   \item[8.] Jeśli dane są poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
 \end{enumerate}
@@ -276,8 +326,36 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{dodanie_transakcji.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionCreate}~--~Utworzenie nowej transakcji.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Edycja transakcji\newline}
 \label{par:transactionEdit}
+Opis słowny - modyfikacja danych dotyczących wybranej transkacji może być
+przydatna w sytuacji, gdy użytkownik wprowdzi błędne dane w kontekście logicznym,
+ale które będą poprawnie w sensie formalnym.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Istnieją transkacje w systemie
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wybór żądanej transkacji,
+	modyfiakcja danych i zapisanie.
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Dodanie nowej transkacji
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -286,7 +364,7 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[5.] Aplikacja wyświetla okno z~informacjami o~transakcji.
   \item[6.] Użytkownik modyfikuje dane transakcji (wpływ/wydatek/transfer), konto od/do, wprowadza wartość, datę, opis i~klika przycisk ,,Zapisz''.
   \item[7.] System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy).
-  \item[8.] Jeśli dane są~poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
+  \item[8.] Jeśli dane są~poprawne, system zapisuje transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
 \end{enumerate}
 \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
@@ -296,8 +374,35 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[10.] Powrót do~kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{edycja_transakcji.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionEdit}~--~Edycja transakcji.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Usuwanie transakcji\newline}
 \label{par:transactionDelete}
+Opis słowny - akcje opisane poniżej mają miejsce w przypadku gdy np. użytkownik zwrócił
+towar dotyczącego którą transkację już wprowadził.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Istnieją transkacje w systemie
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wybór żądanej transkacji,
+	usunięcie jej.
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Brak
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Usunięcie transakcji
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -314,9 +419,36 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{usun_transakcje.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionDelete}~--~Usuwanie transakcji.
+    - scenariusz główny}
+\end{figure}
+
 \subsubsection{Opis przypadków użycia -- budżet}
 \paragraph{Wyświetlenie budżetów ustawionych w systemie\newline}
 \label{par:budgetsList}
+Opis słowny - głównym zadaniem systemu jest nadzorowanie domowego budżetu. Użytkownik
+będzie chciał przejrzeć aktualny stan budżetów sumaryczny oraz poszczególny dla każdego z 
+zarejestrowanych użytkowników.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z budżetami
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Żądanie filtrowania danych
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Wyświetlenie żądanych budżetów
+	\\
+	\hline
+ \end{longtable}
 Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:userBudget},~\ref{par:usersBudget},~\ref{par:userBudgetEdit} oraz~\ref{par:userBudgetDelete}.\\\\
 \textit{Scenariusz główny:}
@@ -334,6 +466,26 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \paragraph{Ustawienie budżetu dla określonego użytkownika\newline}
 \label{par:userBudget}
+Opis słowny - celem lepszej kontroli wydatków, użytkownik może chcieć ustawić limit
+budżetu dla określonego użytkownika, aby ten nie mógł przekroczyć określonej kwoty.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych,
+	zapisanie nowego budżetu
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Dodanie nowego limitu dla użytkownika
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -358,8 +510,36 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{dodanie_budzetu_dla_usera.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudget}~--~Ustawienie budżetu dla określonego użytkownika.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Modyfikacja budżetu sumarycznego dla wszystkich użytkowników\newline}
 \label{par:usersBudget}
+Opis słowny - oprócz ustawiania limitu miesięcznego dla danego użytkownika, kluczowym
+elementem tego systemu jest modyfikacja  limitu sumarycznego dla wszystkich użytkowników
+danej aplikacji. Wartość ta musi być zawsze ustawiona, lecz użytkownik może ją dowolnie modyfikować.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych,
+	zapisanie budżetu
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Zmodyfikowanie budżetu sumarycznego
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -384,8 +564,36 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{modyfikacja_budzetu_sumarycznego.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:usersBudget}~--~Ustawienie budżetu sumarycznego.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Modyfikacja budżetu dla określonego użytkownika\newline}
 \label{par:userBudgetEdit}
+Opis słowny - system musi pozwolić również modyfikować wcześniej ustawiony budżet
+dla poszczególnych użytkowników, gdyż limity te mogą się zmieniać np. jak dziecko
+dostanie większe kieszonkowe.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych,
+	zapisanie budżetu
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Zmodyfikowanie budżetu użytkownika
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -410,8 +618,36 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{modyfikacja_budzetu_uzytkownika.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudgetEdit}~--~Modyfikacja budżetu dla określonego użytkownika.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Usunięcie budżetu dla określonego użytkownika\newline}
 \label{par:userBudgetDelete}
+Opis słowny - akcje te będą wykonane gdy np. użytkownik nie będzie dłużej korzystał
+z podanej aplikacji lub po prostu limit miesięczny go przestał dotyczyć. Również może się
+zmienić polityka i zamiast ustawiania budżetów na poszczególne osoby, zacznie obowiązywać
+tylko budżet sumaryczny.
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Istnieje limit na użytkownika.
+	\\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, usunięcie wybranego budżetu
+	\\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Przerwanie operacji
+	\\
+	\hline
+	\textbf{Warunki końcowe} & Usunięcie budżetu użytkownika
+	\\
+	\hline
+ \end{longtable}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -427,6 +663,13 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[6.] Użytkownik klika przycisk ,,Anuluj''.
   \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{usun_budzet_uzytkownika.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudgetDelete}~--~Usunięcie budżetu dla określonego użytkownika.
+    - scenariusz główny}
+\end{figure}
 
 \subsubsection{Opis przypadków użycia -- raporty}
 % TODO Kombajn
