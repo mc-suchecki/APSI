@@ -672,9 +672,25 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 \end{figure}
 
 \subsubsection{Opis przypadków użycia -- raporty}
-% TODO Kombajn
+
 \paragraph{Konfiguracja raportu\newline}
 \label{par:reportConfig}
+Opis słowny -- istotną funkcją systemu jest generowanie raportów wizualizujących dane zebrane w bazie. Użytkownik powinien mieć możliwość określenia budżetów i zakresu transakcji, których raport ma dotyczyć.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Brak \\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór opcji raportu \\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Brak \\
+	\hline
+	\textbf{Warunki końcowe} & Brak \\
+	\hline
+\end{longtable}
+
 Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:reportView} oraz~\ref{par:reportExport}.\\\\
 \textit{Scenariusz główny:}
@@ -687,6 +703,23 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \paragraph{Wyświetlanie raportu\newline}
 \label{par:reportView}
+
+Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w oknie aplikacji.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Wybrane parametry raportu \\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wyświetlenie raportu \\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Pusty raport \\
+	\hline
+	\textbf{Warunki końcowe} & Brak \\
+	\hline
+\end{longtable}
+
 \indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -706,6 +739,23 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \paragraph{Zapisywanie raportu do pliku\newline}
 \label{par:reportExport}
+
+Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do pliku o określonym formacie.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+ 	\hline
+	\textbf{Aktor} & Użytkownik \\
+	\hline
+	\textbf{Warunki początkowe} & Wybrane parametry raportu \\
+	\hline
+	\textbf{Opis przebiegu interakcji} & Wybór katalogu i nazwy pliku, zapis raportu \\
+	\hline
+	\textbf{Sytuacje wyjątkowe} & Pusty raport, przerwanie operacji \\
+	\hline
+	\textbf{Warunki końcowe} & Raport zapisany do pliku \\
+	\hline
+\end{longtable}
+
 \indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\\\
 \textit{Scenariusz główny:}
 \begin{enumerate}
