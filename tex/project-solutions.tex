@@ -1,3 +1,37 @@
 \section{Rozwiązania projektowe}
 
 % TODO
+
+\subsection {Środowisko}
+Obecnie coraz większa część systemów informatycznych realizowana jest w postaci aplikacji z dostępem z poziomu przeglądarki internetowej.
+Taki zabieg pozwala na bardzo łatwy dostęp do systemu z poziomu praktycznie dowolnego urządzenia posiadającego dostęp do internetu.
+Innymi kluczowym czynnikiem jest duża łatwość w dystrybucji takiego rozwiązania i w związku z tym klient również zdecydował się na zastosowanie
+takiego podejścia.\\
+Środowiskiem pracy dla użytkowników tworzonego systemu będzie przeglądarka internetowa. Dzięki temu klienci będą mogli korzystać z dostarczonego systemu
+zarówno przy użyciu komputera osobistego jak i urządzenia mobilnego. Rozwiązanie takie jak dedykowane aplikacje mogą być przydatne na niektórych rodzajach urządzeń,
+jednak tworzenie ich na wszystkie możliwe rynki (stacjonarne, mobile itp.) stanowiłoby duże wyzwanie i spowodowało znaczące przekroczenia zarówno budżetu
+jak i harmonogramu.\\
+Zdecydowanie się na wsparcie następujących rodzajów przeglądarek:
+\begin{enumerate}
+\item Google Chrome (od wersji 17 w zwyż)
+\item Mozilla Firefox (od wersji 11 wzwyż)
+\item Safari (od wersji 4 wzwyż)
+\item Internet Explorer (od wersji 8 wzwyż)
+\end{enumerate}
+
+Pozostałe przeglądarki także powinny poprawnie prezentować stronę internetową
+sklepu, jednak wsparcie dla nich nie jest wymaganiem a co za tym idzie, dla
+przeglądarek tych nie będą przeprowadzane testy. 
+
+Wygląd strony internetowej powinien być taki sam (z różnicami maksymalnie 0.04%
+zawartości) dla każdej przeglądarki internetowej. Ewentualne różnice wynikające
+na przykład z różnicy w formatach monitorów czy ich wielkości powinny być
+obsługiwane przez mechanizmy wewnętrzne.
+
+Ewentualne aplikacja wspomagające korzystanie ze sklepu (na przykład
+zdobywające coraz większą popularność aplikacje na urządzenia mobilne) nie
+znajdują się w fazie analizy w niniejszym projekcie, ewentualnie mogą zostać
+stworzone w czasie rozbudowy i utrzymywania systemu. Aby pozostawić możliwość
+tego rodzaju rozszerzeń należy zadbać o odpowiedni protokół komunikacyjny
+uniezależniający działanie serwerów aplikacyjnych i bazy danych od klienta,
+który dostarcza dane i polecenia.
