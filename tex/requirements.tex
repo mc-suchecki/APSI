@@ -701,6 +701,13 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
   \item Użytkownika wprowadza parametry raportu, takie jak zakres uwzględnionych transakcji (budżet sumaryczny/budżet indywidualny/wszystkie transakcje użytkownika), zakres dat, rodzaj raportu (tabela/wykres).
 \end{enumerate}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{images/raport_konfig.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportConfig}~--~Konfiguracja raportu.
+    - scenariusz główny}
+\end{figure}
+
 \paragraph{Wyświetlanie raportu\newline}
 \label{par:reportView}
 
@@ -736,6 +743,13 @@ Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w 
   \item[6.] Aplikacja wyświetla informację o pustym raporcie.
   \item[7.] Powrót do kroku 1. scenariusza głównego.
 \end{enumerate}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{images/raport_show.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportView}~--~Wyświetlanie raportu.
+    - scenariusz główny}
+\end{figure}
 
 \paragraph{Zapisywanie raportu do pliku\newline}
 \label{par:reportExport}
@@ -780,6 +794,13 @@ Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do pl
   \item[8.] Aplikacja zamyka okno.
   \item[9.] Powrót do kroku 2. ze scenariusza głównego.
 \end{enumerate}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth,
+    height=0.5\textheight]{images/raport_export.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportExport}~--~Zapisywanie raportu do pliku.
+    - scenariusz główny}
+\end{figure}
 
 \newpage
 \subsection{Wymagania niefunkcjonalne}
