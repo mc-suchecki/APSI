@@ -42,20 +42,20 @@ Wymagania funkcjonalne dotyczące zarządzaniem budżetami w~systemie.
 
 \subsubsection{Raporty}
 Wymagania funkcjonalne dotyczące generowania raportów w~systemie.
-% Kombajn
 \begin{itemize}
-  \item konfiguracja raportu
-  \item wyświetlanie raportu
-  \item zapisywanie raportu do pliku
+  \item konfiguracja raportu,
+  \item wyświetlanie raportu,
+  \item zapisywanie raportu do~pliku.
 \end{itemize}
 
 \subsubsection{Opis przypadków użycia -- użytkownicy}
 
+% TODO diagram przypadków użycia - Kuba
+
 \paragraph{Dodawanie nowego użytkownika\newline}
 \label{par:register}
 
-\textit{Scenariusz główny}
-
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
 \item Użytkownik otwiera stronę ,,Logowanie/Rejestracja''.
 \item Użytkownik wybiera opcję ,,Rejestracja'' i~wprowadza dane: imię, nazwisko, adres e-mail, oraz hasło.
@@ -67,8 +67,7 @@ użytkownika i~informuje go, aby go odebrał.
 \item Aplikacja rejestruje nowego użytkownika i~przekierowuje go do strony logowania.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny -- niepoprawne dane}
-
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
 \item[1-4.] Jak w~scenariuszu głównym.
 \item[5.] System wyświetla informacje o~wykrytym błędzie.
@@ -79,8 +78,7 @@ użytkownika i~informuje go, aby go odebrał.
 \paragraph{Logowanie do~aplikacji\newline}
 \label{par:login}
 
-\textit{Scenariusz główny}
-
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
 \item Użytkownik otwiera stronę ,,Logowanie/Rejestracja''.
 \item Użytkownik wybiera opcję ,,Logowanie'' i~wprowadza dane:~adres e-mail oraz hasło.
@@ -89,8 +87,7 @@ użytkownika i~informuje go, aby go odebrał.
 \item Jeżeli para (e-mail,~hasło) znajduje się w~systemie, aplikacja przekierowuje użytkownika na docelową stronę.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny -- niepoprawne dane}
-
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
 \item[1-4.] Jak w~scenariuszu głównym.
 \item[5.] System wyświetla informacje o~wykrytym błędzie.
@@ -102,8 +99,7 @@ użytkownika i~informuje go, aby go odebrał.
 \label{par:userList}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
-\textit{Scenariusz główny}
-
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
 \item Użytkownik otwiera stronę ,,Użytkownicy''.
 \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
@@ -114,8 +110,7 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \label{par:editUser}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
-\textit{Scenariusz główny}
-
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
 \item Użytkownik loguje się do aplikacji, tak jak w~scenariuszu~\ref{par:login}~--~Logowanie do aplikacji.
 \item Użytkownik otwiera stronę ,,Profil''.
@@ -127,8 +122,7 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \item Jeżeli dane są prawidłowe, system edytuje dane użytkownika.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny -- niepoprawne dane}
-
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
 \item[1-7.] Jak w~scenariuszu głównym.
 \item[8.] System wyświetla informacje o~wykrytym błędzie.
@@ -140,8 +134,7 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \label{par:deleteUser}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
-\textit{Scenariusz główny}
-
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
 \item Użytkownik loguje się do aplikacji, tak jak w~scenariuszu~\ref{par:login}~--~Logowanie do aplikacji.
 \item Użytkownik otwiera stronę ,,Profil''.
@@ -151,16 +144,14 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \item Jeżeli hasło jest zgodne, aplikacja usuwa informacje o~użytkowniku i~następuje wylogowanie.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny -- użytkownik nie potwierdza decyzji}
-
+\noindent \textit{Scenariusz alternatywny -- użytkownik nie potwierdza decyzji:}
 \begin{enumerate}
 \item[1-5.] Jak w~scenariuszu głównym.
 \item[6.] Użytkownik nacisnął przycisk ,,Anuluj''.
 \item[7.] System powraca do strony ,,Profil''.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny -- niepoprawne dane}
-
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
 \item[1-5.] Jak w~scenariuszu głównym.
 \item[6.] System wyświetla informację o~wykrytym błędzie.
@@ -169,11 +160,15 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- konta}
+
+% TODO diagram przypadków użycia - Maciek
+
 \paragraph{Wyświetlanie listy kont\newline}
 \label{par:accountsView}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
-\indent Funkcja generalizująca dla~\ref{par:accountCreate},~\ref{par:accountEdit} oraz~\ref{par:accountDelete}.\\\\
-\textit{Scenariusz główny}
+\indent Funkcja generalizująca dla~\ref{par:accountCreate},~\ref{par:accountEdit} oraz~\ref{par:accountDelete}.\\
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item Użytkownik otwiera stronę ,,Konta''.
   \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
@@ -182,8 +177,9 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \paragraph{Utworzenie nowego konta\newline}
 \label{par:accountCreate}
-Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\\\
-\textit{Scenariusz główny:}
+Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~funkcji generalizującej~\ref{par:accountsView}~--~Wyświetlanie listy kont.
   \item[4.] Użytkownik klika przycisk ,,Dodaj nowe konto''.
@@ -192,7 +188,8 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
   \item[7.] System weryfikuje wprowadzone dane (np. czy para użytkownik-nazwa jest unikatowa).
   \item[8.] Jeśli dane są~prawidłowe, system tworzy nowe konto i~powiadamia o~tym użytkownika.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o wykrytym błędzie.
@@ -202,8 +199,9 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 
 \paragraph{Edycja danych konta\newline}
 \label{par:accountEdit}
-Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\\\
-\textit{Scenariusz główny:}
+Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~funkcji generalizującej~\ref{par:accountsView}~--~Wyświetlanie listy kont.
   \item[4.] Użytkownik zaznacza jedno z~kont i~klika przycisk ,,Edytuj'' obok niego.
@@ -212,7 +210,8 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
   \item[7.] System weryfikuje wprowadzone dane (np. czy para użytkownik-nazwa jest unikatowa).
   \item[8.] Jeśli dane są~prawidłowe, system edytuje konto i~powiadamia o~tym użytkownika.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o wykrytym błędzie.
@@ -222,8 +221,9 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 
 \paragraph{Usunięcie konta\newline}
 \label{par:accountDelete}
-Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\\\
-\textit{Scenariusz główny:}
+Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~funkcji generalizującej~\ref{par:accountsView}~--~Wyświetlanie listy kont.
   \item[4.] Użytkownik zaznacza jedno z~kont i~klika przycisk ,,Usuń'' obok niego.
@@ -231,7 +231,8 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
   \item[6.] Użytkownik klika przycisk ,,Usuń'' w~wyświetlonym oknie.
   \item[7.] Aplikacja zamyka okno, usuwa konto i~odświeża listę kont.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+
+\noindent \textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
@@ -239,11 +240,16 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 \end{enumerate}
 
 \subsubsection{Opis przypadków użycia -- transakcje}
-\label{par:transactionsView}
+
+% TODO diagram przypadków użycia - Daniel
+
 \paragraph{Wyświetlanie listy transakcji\newline}
-Opis słowny - użytkownik będzie chciał wyświetlić listę transakcji zarejestrowanych w systemie.
-Oprócz zwykłej listy zebranych danych, potrzebna jest możliwość filtrowania, co ułatwi użytkownikowi
-przeglądanie listy.
+\label{par:transactionsView}
+Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
+\indent Funkcja generalizująca dla~\ref{par:transactionCreate},~\ref{par:transactionEdit} oraz~\ref{par:transactionDelete}.\\
+
+Opis słowny -- użytkownik będzie chciał wyświetlić listę transakcji zarejestrowanych w~systemie. Oprócz zwykłej listy zebranych danych, potrzebna jest możliwość filtrowania, co~ułatwi użytkownikowi przeglądanie listy.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -261,16 +267,16 @@ przeglądanie listy.
 	\textbf{Warunki końcowe} & Wyświetlona lista żądanych transakcji
 	\\
 	\hline
- \end{longtable}
-Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
-\indent Funkcja generalizująca dla~\ref{par:transactionCreate},~\ref{par:transactionEdit} oraz~\ref{par:transactionDelete}.\\\\
-\textit{Scenariusz główny:}
+\end{longtable}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item Użytkownik otwiera stronę ,,Transakcje''.
   \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
   \item Aplikacja wyświetla listę transakcji powiązanych z kontem danego użytkownika.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- filtrowanie transakcji:}
+
+\noindent \textit{Scenariusz alternatywny -- filtrowanie transakcji:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu głównym.
   \item[4.] Użytkownik wprowadza parametry filtrowania jak nazwa użytkownika, kategoria albo data transakcji.
@@ -278,18 +284,16 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/wyswietl_transakcje.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/wyswietl_transakcje.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji (scenariusz główny)}
 \end{figure}
 
 \paragraph{Utworzenie nowej transakcji\newline}
 \label{par:transactionCreate}
-\paragraph{Wyświetlanie listy transakcji\newline}
-Opis słowny - jedna z podstawowych funkcjonalności systemu to dodawanie
-transkacji, których koszty będą sumowane i nadzorowane. Akcje te mają miejsce
-gdy użytkownik chce dodać wydatek do systemu.
+Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\
+
+Opis słowny -- jedna z podstawowych funkcjonalności systemu to~dodawanie transakcji, których koszty będą sumowane i~nadzorowane. Akcje te~mają miejsce, gdy użytkownik chce dodać wydatek do systemu.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -304,12 +308,12 @@ gdy użytkownik chce dodać wydatek do systemu.
 	\textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych
 	\\
 	\hline
-	\textbf{Warunki końcowe} & Dodanie nowej transkacji
+	\textbf{Warunki końcowe} & Dodanie nowej transakcji
 	\\
 	\hline
- \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
-\textit{Scenariusz główny:}
+\end{longtable}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
   \item[4.] Użytkownik wciska przycisk ,,Dodaj transakcję''.
@@ -318,7 +322,8 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[7.] System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy).
   \item[8.] Jeśli dane są poprawne, system tworzy nową transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o wykrytym błędzie.
@@ -327,17 +332,16 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/dodanie_transakcji.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionCreate}~--~Utworzenie nowej transakcji.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/dodanie_transakcji.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionCreate}~--~Utworzenie nowej transakcji (scenariusz główny)}
 \end{figure}
 
 \paragraph{Edycja transakcji\newline}
 \label{par:transactionEdit}
-Opis słowny - modyfikacja danych dotyczących wybranej transkacji może być
-przydatna w sytuacji, gdy użytkownik wprowdzi błędne dane w kontekście logicznym,
-ale które będą poprawnie w sensie formalnym.
+Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\
+
+Opis słowny -- modyfikacja danych dotyczących wybranej transakcji może być przydatna w~sytuacji, gdy użytkownik wprowadzi błędne dane w~kontekście logicznym, ale które będą poprawnie w~sensie formalnym.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -356,8 +360,8 @@ ale które będą poprawnie w sensie formalnym.
 	\\
 	\hline
  \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
   \item[4.] Użytkownik wybiera jedną z~transakcji i~wciska przycisk ,,Edytuj''.
@@ -366,7 +370,8 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[7.] System weryfikuje wprowadzone dane (np. czy na danym koncie znajduje się wystarczająca ilość pieniędzy).
   \item[8.] Jeśli dane są~poprawne, system zapisuje transakcję, przelicza ilość pieniędzy pozostałych na~koncie i~informuje użytkownika.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o~wykrytym błędzie i~czeka na~poprawkę.
@@ -375,16 +380,16 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/edycja_transakcji.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionEdit}~--~Edycja transakcji.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/edycja_transakcji.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionEdit}~--~Edycja transakcji (scenariusz główny)}
 \end{figure}
 
 \paragraph{Usuwanie transakcji\newline}
 \label{par:transactionDelete}
-Opis słowny - akcje opisane poniżej mają miejsce w przypadku gdy np. użytkownik zwrócił
-towar dotyczącego którą transkację już wprowadził.
+Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\
+
+Opis słowny -- akcje opisane poniżej mają miejsce w~przypadku gdy np. użytkownik zwrócił towar którego dotyczyła transakcja, którą już wprowadził.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -403,8 +408,8 @@ towar dotyczącego którą transkację już wprowadził.
 	\\
 	\hline
  \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:transactionsView}~--~Wyświetlenie listy transakcji.
   \item[4.] Użytkownik wybiera jedną z~transakcji i~wciska przycisk ,,Usuń''.
@@ -412,7 +417,8 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
   \item[6.] Użytkownik potwierdza operację wciskając przycisk ,,Usuń''.
   \item[7.] Aplikacja zamyka okienko, usuwa transakcję, przelicza ilość pieniędzy na koncie i odświeża listę transakcji.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+
+\noindent \textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
@@ -420,18 +426,21 @@ Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy tr
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/usun_transakcje.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionDelete}~--~Usuwanie transakcji.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/usun_transakcje.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:transactionDelete}~--~Usuwanie transakcji (scenariusz główny)}
 \end{figure}
 
 \subsubsection{Opis przypadków użycia -- budżet}
+
+% TODO diagram przypadków użycia - Daniel
+
 \paragraph{Wyświetlenie budżetów ustawionych w systemie\newline}
 \label{par:budgetsList}
-Opis słowny - głównym zadaniem systemu jest nadzorowanie domowego budżetu. Użytkownik
-będzie chciał przejrzeć aktualny stan budżetów sumaryczny oraz poszczególny dla każdego z 
-zarejestrowanych użytkowników.
+Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
+\indent Funkcja generalizująca dla~\ref{par:userBudget},~\ref{par:usersBudget},~\ref{par:userBudgetEdit} oraz~\ref{par:userBudgetDelete}.\\
+
+Opis słowny -- głównym zadaniem systemu jest nadzorowanie domowego budżetu. Użytkownik będzie chciał przejrzeć aktualny stan budżetów sumarycznych oraz poszczególnych dla każdego z~zarejestrowanych użytkowników.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -449,15 +458,15 @@ zarejestrowanych użytkowników.
 	\\
 	\hline
  \end{longtable}
-Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
-\indent Funkcja generalizująca dla~\ref{par:userBudget},~\ref{par:usersBudget},~\ref{par:userBudgetEdit} oraz~\ref{par:userBudgetDelete}.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item Użytkownik otwiera stronę ,,Budżety''.
   \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
   \item Aplikacja wyświetla budżet sumaryczny dla wszystkich użytkowników oraz listę użytkowników z~budżetami dla każdego z~nich.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- filtrowanie wyników:}
+
+\noindent \textit{Scenariusz alternatywny -- filtrowanie wyników:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu głównym.
   \item[4.] Użytkownik wprowadza nazwę konta, którego budżet ma~zostać wyświetlony i~wciska ,,Enter''.
@@ -466,8 +475,10 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \paragraph{Ustawienie budżetu dla określonego użytkownika\newline}
 \label{par:userBudget}
-Opis słowny - celem lepszej kontroli wydatków, użytkownik może chcieć ustawić limit
-budżetu dla określonego użytkownika, aby ten nie mógł przekroczyć określonej kwoty.
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
+
+Opis słowny -- celem lepszej kontroli wydatków, użytkownik może chcieć ustawić limit budżetu dla określonego użytkownika, aby ten nie mógł przekroczyć określonej kwoty.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -486,8 +497,8 @@ budżetu dla określonego użytkownika, aby ten nie mógł przekroczyć określo
 	\\
 	\hline
  \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
   \item[4.] Użytkownik wciska przycisk ,,Dodaj''.
@@ -496,13 +507,15 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[7.] Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna).
   \item[8.] Jeśli wartość jest poprawna system zapisuje nową wartość budżetu, zamyka okno i~aktualizuje stronę z~budżetami.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+
+\noindent \textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Użytkownik wciska przycisk "Anuluj".
   \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o~niepoprawnych danych.
@@ -511,17 +524,16 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/dodanie_budzetu_dla_usera.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudget}~--~Ustawienie budżetu dla określonego użytkownika.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/dodanie_budzetu_dla_usera.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudget}~--~Ustawienie budżetu dla określonego użytkownika (scenariusz główny)}
 \end{figure}
 
 \paragraph{Modyfikacja budżetu sumarycznego dla wszystkich użytkowników\newline}
 \label{par:usersBudget}
-Opis słowny - oprócz ustawiania limitu miesięcznego dla danego użytkownika, kluczowym
-elementem tego systemu jest modyfikacja  limitu sumarycznego dla wszystkich użytkowników
-danej aplikacji. Wartość ta musi być zawsze ustawiona, lecz użytkownik może ją dowolnie modyfikować.
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
+
+Opis słowny -- oprócz ustawiania limitu miesięcznego dla danego użytkownika, kluczowym elementem systemu jest modyfikacja limitu sumarycznego dla wszystkich użytkowników danej aplikacji. Wartość ta~musi być zawsze ustawiona, lecz użytkownik może ją~dowolnie modyfikować.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -540,8 +552,8 @@ danej aplikacji. Wartość ta musi być zawsze ustawiona, lecz użytkownik może
 	\\
 	\hline
  \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
   \item[4.] Użytkownik wciska przycisk "Edytuj" obok pola wyświetlającego budżet sumaryczny.
@@ -550,13 +562,15 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[7.] Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna).
   \item[8.] Jeśli wartość jest poprawna, system zapisuje nową wartość budżetu, zamyka okno i~aktualizuje stronę z budżetami.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+
+\noindent \textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Użytkownik wciska przycisk "Anuluj".
   \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o~niepoprawnych danych.
@@ -565,17 +579,16 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/modyfikacja_budzetu_sumarycznego.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:usersBudget}~--~Ustawienie budżetu sumarycznego.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/modyfikacja_budzetu_sumarycznego.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:usersBudget}~--~Ustawienie budżetu sumarycznego (scenariusz główny)}
 \end{figure}
 
 \paragraph{Modyfikacja budżetu dla określonego użytkownika\newline}
 \label{par:userBudgetEdit}
-Opis słowny - system musi pozwolić również modyfikować wcześniej ustawiony budżet
-dla poszczególnych użytkowników, gdyż limity te mogą się zmieniać np. jak dziecko
-dostanie większe kieszonkowe.
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
+
+Opis słowny -- system musi pozwolić również modyfikować wcześniej ustawiony budżet dla poszczególnych użytkowników, gdyż limity te~mogą się zmieniać np. gdy dziecko dostanie większe kieszonkowe.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -594,8 +607,8 @@ dostanie większe kieszonkowe.
 	\\
 	\hline
  \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
   \item[4.] Użytkownik wciska przycisk ,,Edytuj'' obok pola wyświetlającego budżet dla określonego użytkownika.
@@ -604,13 +617,15 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[7.] Aplikacja weryfikuje poprawność wprowadzonych danych (np. czy liczba nie jest ujemna).
   \item[8.] Jeśli wartość jest poprawna, system zapisuje nową wartość budżetu, zamyka okno i~aktualizuje stronę z~budżetami.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+
+\noindent \textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
   \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- niepoprawne dane:}
+
+\noindent \textit{Scenariusz alternatywny -- niepoprawne dane:}
 \begin{enumerate}
   \item[1-7.] Jak w~scenariuszu głównym.
   \item[8.] System wyświetla informację o~niepoprawnych danych.
@@ -619,18 +634,16 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/modyfikacja_budzetu_uzytkownika.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudgetEdit}~--~Modyfikacja budżetu dla określonego użytkownika.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/modyfikacja_budzetu_uzytkownika.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudgetEdit}~--~Modyfikacja budżetu dla określonego użytkownika (scenariusz główny)}
 \end{figure}
 
 \paragraph{Usunięcie budżetu dla określonego użytkownika\newline}
 \label{par:userBudgetDelete}
-Opis słowny - akcje te będą wykonane gdy np. użytkownik nie będzie dłużej korzystał
-z podanej aplikacji lub po prostu limit miesięczny go przestał dotyczyć. Również może się
-zmienić polityka i zamiast ustawiania budżetów na poszczególne osoby, zacznie obowiązywać
-tylko budżet sumaryczny.
+Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
+
+Opis słowny -- akcje te~będą wykonane, gdy np. użytkownik nie będzie dłużej korzystał z~podanej aplikacji lub limit miesięczny przestał go~dotyczyć. Poza tym, polityka ustalania budżetów może ulec zmianie -- na~przykład zamiast ustawiania budżetów na~poszczególne osoby, zacznie obowiązywać tylko budżet sumaryczny.
+
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
 	\textbf{Aktor} & Użytkownik \\
@@ -648,8 +661,8 @@ tylko budżet sumaryczny.
 	\\
 	\hline
  \end{longtable}
-Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\\\
-\textit{Scenariusz główny:}
+
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~scenariuszu generalizującym~\ref{par:budgetsList}~--~Wyświetlenie budżetów występujących w~systemie.
   \item[4.] Użytkownik wciska przycisk ,,Usuń'' obok pola wyświetlającego budżet dla określonego użytkownika.
@@ -657,7 +670,8 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
   \item[6.] Użytkownik potwierdza operację wciskając przycisk ,,Usuń''.
   \item[7.] System usuwa budżet dla określonego użytkownika, zamyka okno i~odświeża stronę z~budżetami.
 \end{enumerate}
-\textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
+
+\noindent \textit{Scenariusz alternatywny -- przerwanie operacji przez użytkownika:}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Użytkownik klika przycisk ,,Anuluj''.
@@ -665,17 +679,20 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/usun_budzet_uzytkownika.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudgetDelete}~--~Usunięcie budżetu dla określonego użytkownika.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/usun_budzet_uzytkownika.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:userBudgetDelete}~--~Usunięcie budżetu dla określonego użytkownika (scenariusz główny)}
 \end{figure}
 
 \subsubsection{Opis przypadków użycia -- raporty}
-% TODO : diagramy sragramy
+
+% TODO diagram przypadków użycia - Kombajn
+
 \paragraph{Konfiguracja raportu\newline}
 \label{par:reportConfig}
-Opis słowny -- istotną funkcją systemu jest generowanie raportów wizualizujących dane zebrane w bazie. Użytkownik powinien mieć możliwość określenia budżetów i zakresu transakcji, których raport ma dotyczyć.
+Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
+\indent Funkcja generalizująca dla~\ref{par:reportView} oraz~\ref{par:reportExport}.\\
+
+Opis słowny -- istotną funkcją systemu jest generowanie raportów wizualizujących dane zebrane w~bazie. Użytkownik powinien mieć możliwość określenia budżetów i~zakresu transakcji, których raport ma~dotyczyć.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
@@ -691,9 +708,7 @@ Opis słowny -- istotną funkcją systemu jest generowanie raportów wizualizuj�
 	\hline
 \end{longtable}
 
-Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
-\indent Funkcja generalizująca dla~\ref{par:reportView} oraz~\ref{par:reportExport}.\\\\
-\textit{Scenariusz główny:}
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item Użytkownik otwiera stronę ,,Raport''.
   \item Jeśli użytkownik nie jest zalogowany, aplikacja wymaga zalogowania, inicjując~\ref{par:login}~--~Logowanie do~aplikacji.
@@ -702,14 +717,13 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/raport_konfig.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportConfig}~--~Konfiguracja raportu.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/raport_konfig.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportConfig}~--~Konfiguracja raportu (scenariusz główny)}
 \end{figure}
 
 \paragraph{Wyświetlanie raportu\newline}
 \label{par:reportView}
+\indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\
 
 Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w oknie aplikacji.
 
@@ -727,8 +741,7 @@ Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w 
 	\hline
 \end{longtable}
 
-\indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\\\
-\textit{Scenariusz główny:}
+\noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-4.] Jak w scenariuszu generalizującym~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.
   \item[5.] Użytkownik wciska przycisk ,,Wyświetl raport''.
@@ -737,7 +750,7 @@ Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w 
   \item[8.] Aplikacja zamyka okno.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny~--~brak transakcji w raporcie}
+\noindent \textit{Scenariusz alternatywny~--~brak transakcji w raporcie}
 \begin{enumerate}
   \item[1-5.] Jak w scenariuszu głównym.
   \item[6.] Aplikacja wyświetla informację o pustym raporcie.
@@ -745,16 +758,15 @@ Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w 
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/raport_show.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportView}~--~Wyświetlanie raportu.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/raport_show.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportView}~--~Wyświetlanie raportu (scenariusz główny)}
 \end{figure}
 
 \paragraph{Zapisywanie raportu do pliku\newline}
 \label{par:reportExport}
+\indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\
 
-Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do pliku o określonym formacie.
+Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do~pliku o~określonym formacie.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
  	\hline
@@ -770,8 +782,7 @@ Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do pl
 	\hline
 \end{longtable}
 
-\indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\\\
-\textit{Scenariusz główny:}
+\noindent \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-4.] Jak w scenariuszu generalizującym~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.
   \item[5.] Użytkownik wciska przycisk ,,Zapisz raport''.
@@ -780,14 +791,14 @@ Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do pl
   \item[8.] Aplikacja zapisuje raport w odpowiednim formacie do wybranego pliku i zamyka okno.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny~--~brak transakcji w raporcie}
+\noindent \textit{Scenariusz alternatywny~--~brak transakcji w raporcie}
 \begin{enumerate}
   \item[1-5.] Jak w scenariuszu głównym.
   \item[6.] Aplikacja wyświetla informację o pustym raporcie.
   \item[7.] Powrót do kroku 1. scenariusza głównego.
 \end{enumerate}
 
-\textit{Scenariusz alternatywny~--~przerwanie operacji przez użytkownika}
+\noindent \textit{Scenariusz alternatywny~--~przerwanie operacji przez użytkownika}
 \begin{enumerate}
   \item[1-6.] Jak w scenariuszu głównym.
   \item[7.] Użytkownik wciska przycisk ,,Anuluj''.
@@ -796,15 +807,13 @@ Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do pl
 \end{enumerate}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth,
-    height=0.5\textheight]{images/raport_export.png}
-    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportExport}~--~Zapisywanie raportu do pliku.
-    - scenariusz główny}
+    \includegraphics[width=\textwidth]{images/raport_export.png}
+    \caption{Diagram sekwencji dla przypadku użycia~\ref{par:reportExport}~--~Zapisywanie raportu do pliku (scenariusz główny)}
 \end{figure}
 
 \newpage
 \subsection{Wymagania niefunkcjonalne}
-% Kombajn
+
 \subsubsection{Bezpieczeństwo}
 
 \paragraph{Ograniczenia dostępu\newline}
