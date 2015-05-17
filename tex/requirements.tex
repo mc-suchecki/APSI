@@ -51,8 +51,9 @@ Wymagania funkcjonalne dotyczące generowania raportów w~systemie.
 \subsubsection{Opis przypadków użycia -- użytkownicy}
 
 \begin{figure}[H]
-  \includegraphics[width=\textwidth]{images/przypadki_uzytkownik.png}
-  \caption{Diagram przypadków użycia związanych z~kontami użytkowników}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/przypadki_uzytkownik.png}
+  \caption{Diagram przypadków użycia związanych z~kontami użytkowników.}
 \end{figure}
 
 \paragraph{Dodawanie nowego użytkownika\newline}
@@ -61,7 +62,7 @@ Wymagania funkcjonalne dotyczące generowania raportów w~systemie.
 \textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi stworzenie konta, poprzez które będzie miał
 on dostęp do systemu.
 
-\begin{longtable}{|p{5cm}|p{7cm}|}
+\begin{longtable}{|p{5cm}|p{8cm}|}
   \hline \textbf{Aktor} & Użytkownik \\ \hline
   \textbf{Warunki początkowe} & Użytkownik nie jest zarejestrowany \\ \hline
   \textbf{Opis przebiegu interakcji} & Wybór strony z~rejestracją, wprowadzenie danych, kliknięcie przycisku,
@@ -73,7 +74,7 @@ on dostęp do systemu.
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item Użytkownik otwiera stronę ,,Logowanie/Rejestracja''.
-  \item Użytkownik wybiera opcję ,,Rejestracja'' i~wprowadza dane: imię, nazwisko, adres e-mail, oraz hasło.
+  \item Użytkownik wybiera opcję ,,Rejestracja'' i~wprowadza niezbędne dane.
   \item Użytkownik naciska przycisk ,,Zarejestruj''.
   \item Aplikacja sprawdza wprowadzone dane.
   \item Jeżeli nie wystąpiły żadne błędy, system wysyła aktywacyjną wiadomość e-mail na adres wprowadzony przez użytkownika i~informuje go, aby go odebrał.
@@ -94,6 +95,7 @@ on dostęp do systemu.
   \caption{Diagram sekwencji dla przypadku użycia~\ref{par:register}~--~Dodawanie nowego użytkownika (scenariusz główny)}
 \end{figure}
 
+\newpage
 \paragraph{Logowanie do~aplikacji\newline}
 \label{par:login}
 
@@ -196,6 +198,7 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
   \caption{Diagram sekwencji dla przypadku użycia~\ref{par:editUser}~--~Edycja danych użytkownika (scenariusz główny)}
 \end{figure}
 
+\newpage
 \paragraph{Usunięcie użytkownika\newline}
 \label{par:deleteUser}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
@@ -244,10 +247,11 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{images/use-cases-accounts.png}
+  \includegraphics[width=0.9\textwidth]{images/use-cases-accounts.png}
   \caption{Diagram przypadków użycia związanych z~zarządzaniem kontami.}
 \end{figure}
 
+\newpage
 \paragraph{Wyświetlanie listy kont\newline}
 \label{par:accountsView}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
@@ -280,7 +284,7 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \label{par:accountCreate}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
 
-\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi dodawanie nowych kont. Dzięki temu ma~on możliwość kontrolowania stanu wszystkich posiadanych przez niego fizycznie kont -- np. osobistych, oszczędnościowych lub walutowych oraz definiowania transakcji pomiędzy nimi.\\
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi dodawanie nowych kont. Dzięki temu ma~on możliwość kontrolowania stanu wszystkich posiadanych przez niego fizycznie kont -- np. oszczędnościowych lub walutowych oraz definiowania transakcji pomiędzy nimi.\\
 
 \begin{tabular}{|l|p{9cm}|}
   \hline \textbf{Aktor} & Użytkownik \\ \hline
