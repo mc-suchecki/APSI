@@ -1,9 +1,9 @@
 \section{Rozwiązania projektowe}
 
 \subsection {Środowisko}
-Obecnie coraz większa część systemów informatycznych realizowana jest w postaci aplikacji z~dostępem z~poziomu przeglądarki internetowej. Taki zabieg pozwala na~bardzo łatwy dostęp do~systemu z~poziomu praktycznie dowolnego urządzenia posiadającego dostęp do~internetu. Innymi kluczowym czynnikiem jest duża łatwość w~dystrybucji takiego rozwiązania i~w~związku z~tym klient również zdecydował się na~zastosowanie takiego podejścia.\\
+Obecnie coraz większa część systemów informatycznych realizowana jest w~postaci aplikacji z~dostępem z~poziomu przeglądarki internetowej. Taki zabieg pozwala na~bardzo łatwy dostęp do~systemu z~poziomu praktycznie dowolnego urządzenia posiadającego dostęp do~internetu. Innymi kluczowym czynnikiem jest duża łatwość w~dystrybucji takiego rozwiązania i~w~związku z~tym klient również zdecydował się na~zastosowanie takiego podejścia.\\
 
-Środowiskiem pracy dla użytkowników tworzonego systemu będzie przeglądarka internetowa. Dzięki temu klienci będą mogli korzystać z dostarczonego systemu zarówno przy użyciu komputera osobistego jak i~urządzenia mobilnego. Rozwiązanie takie jak dedykowane aplikacje mogą być przydatne na~niektórych rodzajach urządzeń, jednak tworzenie ich na~wszystkie możliwe rynki (stacjonarne, mobile itp.) stanowiłoby duże wyzwanie i~spowodowało znaczące przekroczenia zarówno budżetu jak i harmonogramu.\\
+Środowiskiem pracy dla użytkowników tworzonego systemu będzie przeglądarka internetowa. Dzięki temu klienci będą mogli korzystać z~dostarczonego systemu zarówno przy użyciu komputera osobistego jak i~urządzenia mobilnego. Rozwiązanie takie jak dedykowane aplikacje mogą być przydatne na~niektórych rodzajach urządzeń, jednak tworzenie ich na~wszystkie możliwe rynki (stacjonarne, mobile itp.) stanowiłoby duże wyzwanie i~spowodowało znaczące przekroczenia zarówno budżetu jak i~harmonogramu.\\
 
 Zdecydowano się na~wsparcie następujących rodzajów przeglądarek:
 \begin{enumerate}
@@ -23,24 +23,24 @@ Ewentualne aplikacje wspomagające korzystanie ze~sklepu (na~przykład zdobywaj�
 \subsection{Architektura}
 % TODO Kuba
 
-Jedną z~głównych decyzji w czasie procesu projektowania tworzonego systemu jest wybór odpowiedniej architektury. Nasza
+Jedną z~głównych decyzji w~czasie procesu projektowania tworzonego systemu jest wybór odpowiedniej architektury. Nasza
 aplikacja będzie wykorzystywała architekturę trójwarstwową (\textit{ang.} three-tier architecture), ponieważ jest to
-najpopularniejsza architektura stosowana w aplikacjach dostępnych z poziomu przeglądarki internetowej. Architektura
+najpopularniejsza architektura stosowana w~aplikacjach dostępnych z~poziomu przeglądarki internetowej. Architektura
 trójwarstwowa jest przykładem aplikacji typu klient-serwer. Dzieli się ją na trzy warstwy, dzięki czemu proces tworzenia
 i nanoszenia poprawek jest łatwiejszy. Co więcej, daje to możliwość zredukowania zależności pomiędzy modułami programu.
 Architektura składa się z~następujących warstw: 
 \begin{itemize}
   \item \textbf{warstwa danych} (\textit{ang.} data tier)~--~odpowiada za trwałe przechowywanie danych, udostępnia
-    interfejs do ich pobierania i modyfikacji. Realizowana za pomocą relacyjnej bazy danych.
+    interfejs do ich pobierania i~modyfikacji. Realizowana za pomocą relacyjnej bazy danych.
   \item \textbf{warstwa logiki biznesowej} (\textit{ang.} business logic tier)~--~odpowiada za logikę całego systemu,
-  koordynuje działania odpowiadające operacjom na kontach i użytkownikach. Znajduje się na serwerze aplikacyjnym. Pełni
+  koordynuje działania odpowiadające operacjom na kontach i~użytkownikach. Znajduje się na serwerze aplikacyjnym. Pełni
   rolę pośrednika pomiędzy pozostałymi warstwami.
   \item \textbf{warstwa prezentacji} (\textit{ang.} presentation tier)~--~odpowiada za prezentowanie aplikacji na
-  komputerze użytkownika, zbieranie jego akcji i przekazywanie ich do warstwy logiki biznesowej.
+  komputerze użytkownika, zbieranie jego akcji i~przekazywanie ich do warstwy logiki biznesowej.
 \end{itemize}
 
-Wybór architektury trójwarstwowej pociąga za sobą technologie w jakie zostaną zastosowane. Do stworzenia interfejsu
-użytkownika wykorzystane zostaną technologie wykorzystywane w projektowaniu stron internetowych, czyli HTML i CSS. Aby
+Wybór architektury trójwarstwowej pociąga za sobą technologie w~jakie zostaną zastosowane. Do stworzenia interfejsu
+użytkownika wykorzystane zostaną technologie wykorzystywane w~projektowaniu stron internetowych, czyli HTML i~CSS. Aby
 poprawić User Experience, można również założyć wykorzystanie języka JavaScript oraz technologii AJAX. Warstwa logiki,
 czyli tzw. backend zostanie stworzony przy użyciu języka Java, ze względu na wydajność, łatwość we wprowadzaniu
 zmian, oraz rozbudowaną dokumentację. Dodatkowo wykorzystany zostanie framework webowy SpringMVC. Jako system
@@ -48,7 +48,7 @@ zarządzania bazą danych (\textit{ang.} DBMS) postanowiono wykorzystać Postgre
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{images/3tier.png}
-  \caption{Architektura trójwarstowa, z zaznaczonymi wybranymi technologiami.}
+  \caption{Architektura trójwarstowa, z~zaznaczonymi wybranymi technologiami.}
 \end{figure}
 
 \subsection{Sprzęt}
