@@ -167,6 +167,16 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:accountCreate},~\ref{par:accountEdit} oraz~\ref{par:accountDelete}.\\
 
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi wyświetlenie listy kont, które są~do~niego przypisane w~programie. Dzięki temu może on~łatwo nimi zarządzać oraz monitorować ich stan.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+  \hline \textbf{Aktor} & Użytkownik \\ \hline
+  \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\ \hline
+  \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami \\ \hline
+  \textbf{Sytuacje wyjątkowe} & Brak \\ \hline
+  \textbf{Warunki końcowe} & Wyświetlona lista posiadanych kont \\ \hline
+\end{longtable}
+
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item Użytkownik otwiera stronę ,,Konta''.
@@ -177,6 +187,16 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \paragraph{Utworzenie nowego konta\newline}
 \label{par:accountCreate}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
+
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi dodawanie nowych kont. Dzięki temu ma~on możliwość kontrolowania stanu wszystkich posiadanych przez niego fizycznie kont -- np. osobistych, oszczędnościowych lub walutowych oraz definiowania transakcji pomiędzy nimi.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+  \hline \textbf{Aktor} & Użytkownik \\ \hline
+  \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\ \hline
+  \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami, kliknięcie przycisku, wprowadzenie danych oraz zatwierdzenie \\ \hline
+  \textbf{Sytuacje wyjątkowe} & Niepoprawne dane \\ \hline
+  \textbf{Warunki końcowe} & Nowe konto dodane do systemu \\ \hline
+\end{longtable}
 
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -200,6 +220,16 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 \label{par:accountEdit}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
 
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi edycję danych konta. Dzięki temu ma~on możliwość aktualizowania danych oraz zapewnienia ich zgodności ze~stanem faktycznym -- poza systemem.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+  \hline \textbf{Aktor} & Użytkownik \\ \hline
+  \textbf{Warunki początkowe} & Użytkownik jest zalogowany i~posiada przynajmniej jedno konto \\ \hline
+  \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami, wybór konta, kliknięcie przycisku, wprowadzenie danych oraz zatwierdzenie \\ \hline
+  \textbf{Sytuacje wyjątkowe} & Niepoprawne dane \\ \hline
+  \textbf{Warunki końcowe} & Edycja danych konta w~systemie \\ \hline
+\end{longtable}
+
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
   \item[1-3.] Jak w~funkcji generalizującej~\ref{par:accountsView}~--~Wyświetlanie listy kont.
@@ -221,6 +251,16 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 \paragraph{Usunięcie konta\newline}
 \label{par:accountDelete}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
+
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi usunięcie konta. Dzięki temu ma~on możliwość ukrycia w~systemie kont już nieużywanych lub nieaktywnych.
+
+\begin{longtable}{|p{5cm}|p{7cm}|}
+  \hline \textbf{Aktor} & Użytkownik \\ \hline
+  \textbf{Warunki początkowe} & Użytkownik jest zalogowany i~posiada przynajmniej jedno konto \\ \hline
+  \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami, wybór konta, kliknięcie przycisku oraz zatwierdzenie \\ \hline
+  \textbf{Sytuacje wyjątkowe} & Anulowanie akcji \\ \hline
+  \textbf{Warunki końcowe} & Usunięcie konta z~systemu \\ \hline
+\end{longtable}
 
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -247,24 +287,14 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
 Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:transactionCreate},~\ref{par:transactionEdit} oraz~\ref{par:transactionDelete}.\\
 
-Opis słowny -- użytkownik będzie chciał wyświetlić listę transakcji zarejestrowanych w~systemie. Oprócz zwykłej listy zebranych danych, potrzebna jest możliwość filtrowania, co~ułatwi użytkownikowi przeglądanie listy.
+\textit{Opis słowny} -- użytkownik będzie chciał wyświetlić listę transakcji zarejestrowanych w~systemie. Oprócz zwykłej listy zebranych danych, potrzebna jest możliwość filtrowania, co~ułatwi użytkownikowi przeglądanie listy.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami,
-  wprowadzenie parametrów filtrowania
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Żądanie filtrowania danych
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Wyświetlona lista żądanych transakcji
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wprowadzenie parametrów filtrowania \\
+  \hline \textbf{Sytuacje wyjątkowe} & Żądanie filtrowania danych \\
+  \hline \textbf{Warunki końcowe} & Wyświetlona lista żądanych transakcji \\
   \hline
 \end{longtable}
 
@@ -291,24 +321,14 @@ Opis słowny -- użytkownik będzie chciał wyświetlić listę transakcji zarej
 \label{par:transactionCreate}
 Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\
 
-Opis słowny -- jedna z podstawowych funkcjonalności systemu to~dodawanie transakcji, których koszty będą sumowane i~nadzorowane. Akcje te~mają miejsce, gdy użytkownik chce dodać wydatek do systemu.
+\textit{Opis słowny} -- jedna z podstawowych funkcjonalności systemu to~dodawanie transakcji, których koszty będą sumowane i~nadzorowane. Akcje te~mają miejsce, gdy użytkownik chce dodać wydatek do systemu.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami i wciśnięcie dodaj,
-  uzupełnienie danych i zapisanie
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Dodanie nowej transakcji
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany oraz posiada przynajmniej jedno konto \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami i wciśnięcie dodaj, uzupełnienie danych i zapisanie \\
+  \hline \textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych \\
+  \hline \textbf{Warunki końcowe} & Dodanie nowej transakcji \\
   \hline
 \end{longtable}
 
@@ -339,24 +359,14 @@ Opis słowny -- jedna z podstawowych funkcjonalności systemu to~dodawanie trans
 \label{par:transactionEdit}
 Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\
 
-Opis słowny -- modyfikacja danych dotyczących wybranej transakcji może być przydatna w~sytuacji, gdy użytkownik wprowadzi błędne dane w~kontekście logicznym, ale które będą poprawnie w~sensie formalnym.
+\textit{Opis słowny} -- modyfikacja danych dotyczących wybranej transakcji może być przydatna w~sytuacji, gdy użytkownik wprowadzi błędne dane w~kontekście logicznym, ale które będą poprawnie w~sensie formalnym.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Istnieją transkacje w systemie
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wybór żądanej transkacji,
-  modyfiakcja danych i zapisanie.
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Dodanie nowej transkacji
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany oraz istnieją transakcje w~systemie \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wybór żądanej transakcji, modyfikacja danych i~zapisanie \\
+  \hline \textbf{Sytuacje wyjątkowe} & Wprowadzenie niepoprawnych danych \\
+  \hline \textbf{Warunki końcowe} & Dodanie nowej transakcji \\
   \hline
 \end{longtable}
 
@@ -387,24 +397,14 @@ Opis słowny -- modyfikacja danych dotyczących wybranej transakcji może być p
 \label{par:transactionDelete}
 Funkcja~specjalizująca~dla~\ref{par:transactionsView}~--~Wyświetlanie listy transakcji.\\
 
-Opis słowny -- akcje opisane poniżej mają miejsce w~przypadku gdy np. użytkownik zwrócił towar którego dotyczyła transakcja, którą już wprowadził.
+\textit{Opis słowny} -- akcje opisane poniżej mają miejsce w~przypadku gdy np. użytkownik zwrócił towar którego dotyczyła transakcja, którą już wprowadził.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Istnieją transkacje w systemie
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wybór żądanej transkacji,
-  usunięcie jej.
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Brak
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Usunięcie transakcji
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany oraz istnieją transakcje w~systemie \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z transakcjami, wybór żądanej transakcji, usunięcie jej \\
+  \hline \textbf{Sytuacje wyjątkowe} & Brak \\
+  \hline \textbf{Warunki końcowe} & Usunięcie transakcji \\
   \hline
 \end{longtable}
 
@@ -438,23 +438,14 @@ Opis słowny -- akcje opisane poniżej mają miejsce w~przypadku gdy np. użytko
 Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:userBudget},~\ref{par:usersBudget},~\ref{par:userBudgetEdit} oraz~\ref{par:userBudgetDelete}.\\
 
-Opis słowny -- głównym zadaniem systemu jest nadzorowanie domowego budżetu. Użytkownik będzie chciał przejrzeć aktualny stan budżetów sumarycznych oraz poszczególnych dla każdego z~zarejestrowanych użytkowników.
+\textit{Opis słowny} -- głównym zadaniem systemu jest nadzorowanie domowego budżetu. Użytkownik będzie chciał przejrzeć aktualny stan budżetów sumarycznych oraz poszczególnych dla każdego z~zarejestrowanych użytkowników.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Żądanie filtrowania danych
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Wyświetlenie żądanych budżetów
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami \\
+  \hline \textbf{Sytuacje wyjątkowe} & Żądanie filtrowania danych \\
+  \hline \textbf{Warunki końcowe} & Wyświetlenie żądanych budżetów \\
   \hline
 \end{longtable}
 
@@ -476,24 +467,14 @@ Opis słowny -- głównym zadaniem systemu jest nadzorowanie domowego budżetu. 
 \label{par:userBudget}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 
-Opis słowny -- celem lepszej kontroli wydatków, użytkownik może chcieć ustawić limit budżetu dla określonego użytkownika, aby ten nie mógł przekroczyć określonej kwoty.
+\textit{Opis słowny} -- celem lepszej kontroli wydatków, użytkownik może chcieć ustawić limit budżetu dla określonego użytkownika, aby ten nie mógł przekroczyć określonej kwoty.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych,
-  zapisanie nowego budżetu
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Dodanie nowego limitu dla użytkownika
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych, zapisanie nowego budżetu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji \\
+  \hline \textbf{Warunki końcowe} & Dodanie nowego limitu dla użytkownika \\
   \hline
 \end{longtable}
 
@@ -531,24 +512,14 @@ Opis słowny -- celem lepszej kontroli wydatków, użytkownik może chcieć usta
 \label{par:usersBudget}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 
-Opis słowny -- oprócz ustawiania limitu miesięcznego dla danego użytkownika, kluczowym elementem systemu jest modyfikacja limitu sumarycznego dla wszystkich użytkowników danej aplikacji. Wartość ta~musi być zawsze ustawiona, lecz użytkownik może ją~dowolnie modyfikować.
+\textit{Opis słowny} -- oprócz ustawiania limitu miesięcznego dla danego użytkownika, kluczowym elementem systemu jest modyfikacja limitu sumarycznego dla wszystkich użytkowników danej aplikacji. Wartość ta~musi być zawsze ustawiona, lecz użytkownik może ją~dowolnie modyfikować.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych,
-  zapisanie budżetu
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Zmodyfikowanie budżetu sumarycznego
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych, zapisanie budżetu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji \\
+  \hline \textbf{Warunki końcowe} & Zmodyfikowanie budżetu sumarycznego \\
   \hline
 \end{longtable}
 
@@ -586,24 +557,14 @@ Opis słowny -- oprócz ustawiania limitu miesięcznego dla danego użytkownika,
 \label{par:userBudgetEdit}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 
-Opis słowny -- system musi pozwolić również modyfikować wcześniej ustawiony budżet dla poszczególnych użytkowników, gdyż limity te~mogą się zmieniać np. gdy dziecko dostanie większe kieszonkowe.
+\textit{Opis słowny} -- system musi pozwolić również modyfikować wcześniej ustawiony budżet dla poszczególnych użytkowników, gdyż limity te~mogą się zmieniać np. gdy dziecko dostanie większe kieszonkowe.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych,
-  zapisanie budżetu
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Zmodyfikowanie budżetu użytkownika
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, wprowadzenie wymaganych danych, zapisanie budżetu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Błędne wprowadzenie danych, przerwanie operacji \\
+  \hline \textbf{Warunki końcowe} & Zmodyfikowanie budżetu użytkownika \\
   \hline
 \end{longtable}
 
@@ -641,23 +602,14 @@ Opis słowny -- system musi pozwolić również modyfikować wcześniej ustawion
 \label{par:userBudgetDelete}
 Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 
-Opis słowny -- akcje te~będą wykonane, gdy np. użytkownik nie będzie dłużej korzystał z~podanej aplikacji lub limit miesięczny przestał go~dotyczyć. Poza tym, polityka ustalania budżetów może ulec zmianie -- na~przykład zamiast ustawiania budżetów na~poszczególne osoby, zacznie obowiązywać tylko budżet sumaryczny.
+\textit{Opis słowny} -- akcje te~będą wykonane, gdy np. użytkownik nie będzie dłużej korzystał z~podanej aplikacji lub limit miesięczny przestał go~dotyczyć. Poza tym, polityka ustalania budżetów może ulec zmianie -- na~przykład zamiast ustawiania budżetów na~poszczególne osoby, zacznie obowiązywać tylko budżet sumaryczny.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Istnieje limit na użytkownika.
-  \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, usunięcie wybranego budżetu
-  \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Przerwanie operacji
-  \\
-  \hline
-  \textbf{Warunki końcowe} & Usunięcie budżetu użytkownika
-  \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany oraz istnieje limit ustawiony na~użytkownika \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór strony z budżetami, usunięcie wybranego budżetu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Przerwanie operacji \\
+  \hline \textbf{Warunki końcowe} & Usunięcie budżetu użytkownika \\
   \hline
 \end{longtable}
 
@@ -691,19 +643,14 @@ Opis słowny -- akcje te~będą wykonane, gdy np. użytkownik nie będzie dłuż
 Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:reportView} oraz~\ref{par:reportExport}.\\
 
-Opis słowny -- istotną funkcją systemu jest generowanie raportów wizualizujących dane zebrane w~bazie. Użytkownik powinien mieć możliwość określenia budżetów i~zakresu transakcji, których raport ma~dotyczyć.
+\textit{Opis słowny} -- istotną funkcją systemu jest generowanie raportów wizualizujących dane zebrane w~bazie. Użytkownik powinien mieć możliwość określenia budżetów i~zakresu transakcji, których raport ma~dotyczyć.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Brak \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór opcji raportu \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Brak \\
-  \hline
-  \textbf{Warunki końcowe} & Brak \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór opcji raportu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Brak \\
+  \hline \textbf{Warunki końcowe} & Brak \\
   \hline
 \end{longtable}
 
@@ -724,19 +671,14 @@ Opis słowny -- istotną funkcją systemu jest generowanie raportów wizualizuj�
 \label{par:reportView}
 \indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\
 
-Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w oknie aplikacji.
+\textit{Opis słowny} -- użytkownik powinien mieć możliwość wyświetlenia raportu w oknie aplikacji.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Wybrane parametry raportu \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wyświetlenie raportu \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Pusty raport \\
-  \hline
-  \textbf{Warunki końcowe} & Brak \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany, parametry raportu są~wybrane \\
+  \hline \textbf{Opis przebiegu interakcji} & Wyświetlenie raportu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Pusty raport \\
+  \hline \textbf{Warunki końcowe} & Brak \\
   \hline
 \end{longtable}
 
@@ -765,19 +707,14 @@ Opis słowny -- użytkownik powinien mieć możliwość wyświetlenia raportu w 
 \label{par:reportExport}
 \indent Funkcja specjalizująca dla~\ref{par:reportConfig}~--~Wyświetlanie konfiguracji raportu.\\
 
-Opis słowny -- aplikacja powinna umożliwiać również zapisanie raportu do~pliku o~określonym formacie.
+\textit{Opis słowny} -- aplikacja powinna umożliwiać również zapisanie raportu do~pliku o~określonym formacie.
 
 \begin{longtable}{|p{5cm}|p{7cm}|}
-  \hline
-  \textbf{Aktor} & Użytkownik \\
-  \hline
-  \textbf{Warunki początkowe} & Wybrane parametry raportu \\
-  \hline
-  \textbf{Opis przebiegu interakcji} & Wybór katalogu i nazwy pliku, zapis raportu \\
-  \hline
-  \textbf{Sytuacje wyjątkowe} & Pusty raport, przerwanie operacji \\
-  \hline
-  \textbf{Warunki końcowe} & Raport zapisany do pliku \\
+  \hline \textbf{Aktor} & Użytkownik \\
+  \hline \textbf{Warunki początkowe} & Użytkownik jest zalogowany, parametry raportu są~wybrane \\
+  \hline \textbf{Opis przebiegu interakcji} & Wybór katalogu i nazwy pliku, zapis raportu \\
+  \hline \textbf{Sytuacje wyjątkowe} & Pusty raport, przerwanie operacji \\
+  \hline \textbf{Warunki końcowe} & Raport zapisany do pliku \\
   \hline
 \end{longtable}
 
