@@ -160,22 +160,26 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 
 \subsubsection{Opis przypadków użycia -- konta}
 
-% TODO diagram przypadków użycia - Maciek
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/use-cases-accounts.png}
+  \caption{Diagram przypadków użycia związanych z~zarządzaniem kontami.}
+\end{figure}
 
 \paragraph{Wyświetlanie listy kont\newline}
 \label{par:accountsView}
 Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \indent Funkcja generalizująca dla~\ref{par:accountCreate},~\ref{par:accountEdit} oraz~\ref{par:accountDelete}.\\
 
-\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi wyświetlenie listy kont, które są~do~niego przypisane w~programie. Dzięki temu może on~łatwo nimi zarządzać oraz monitorować ich stan.
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi wyświetlenie listy kont, które są~do~niego przypisane w~programie. Dzięki temu może on~łatwo nimi zarządzać oraz monitorować ich stan.\\
 
-\begin{longtable}{|p{5cm}|p{7cm}|}
+\begin{tabular}{|l|l|}
   \hline \textbf{Aktor} & Użytkownik \\ \hline
   \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\ \hline
   \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami \\ \hline
   \textbf{Sytuacje wyjątkowe} & Brak \\ \hline
   \textbf{Warunki końcowe} & Wyświetlona lista posiadanych kont \\ \hline
-\end{longtable}
+\end{tabular}\\\\
 
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -184,19 +188,25 @@ Korzysta z~\ref{par:login}~--~Logowanie do~aplikacji.\\
   \item Aplikacja wyświetla konta należące do zalogowanego użytkownika.
 \end{enumerate}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/sequence-diagram-accounts-view.png}
+  \caption{Diagram sekwencji dla przypadku użycia~\ref{par:accountsView}~--~Wyświetlenie listy kont}
+\end{figure}
+
 \paragraph{Utworzenie nowego konta\newline}
 \label{par:accountCreate}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
 
-\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi dodawanie nowych kont. Dzięki temu ma~on możliwość kontrolowania stanu wszystkich posiadanych przez niego fizycznie kont -- np. osobistych, oszczędnościowych lub walutowych oraz definiowania transakcji pomiędzy nimi.
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi dodawanie nowych kont. Dzięki temu ma~on możliwość kontrolowania stanu wszystkich posiadanych przez niego fizycznie kont -- np. osobistych, oszczędnościowych lub walutowych oraz definiowania transakcji pomiędzy nimi.\\
 
-\begin{longtable}{|p{5cm}|p{7cm}|}
+\begin{tabular}{|l|p{9cm}|}
   \hline \textbf{Aktor} & Użytkownik \\ \hline
   \textbf{Warunki początkowe} & Użytkownik jest zalogowany \\ \hline
   \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami, kliknięcie przycisku, wprowadzenie danych oraz zatwierdzenie \\ \hline
   \textbf{Sytuacje wyjątkowe} & Niepoprawne dane \\ \hline
   \textbf{Warunki końcowe} & Nowe konto dodane do systemu \\ \hline
-\end{longtable}
+\end{tabular}\\\\
 
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -216,19 +226,25 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
   \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/sequence-diagram-account-create.png}
+  \caption{Diagram sekwencji dla przypadku użycia~\ref{par:accountCreate}~--~Utworzenie nowego konta}
+\end{figure}
+
 \paragraph{Edycja danych konta\newline}
 \label{par:accountEdit}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
 
-\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi edycję danych konta. Dzięki temu ma~on możliwość aktualizowania danych oraz zapewnienia ich zgodności ze~stanem faktycznym -- poza systemem.
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi edycję danych konta. Dzięki temu ma~on możliwość aktualizowania danych oraz zapewnienia ich zgodności ze~stanem faktycznym -- poza systemem.\\
 
-\begin{longtable}{|p{5cm}|p{7cm}|}
+\begin{tabular}{|l|p{9cm}|}
   \hline \textbf{Aktor} & Użytkownik \\ \hline
   \textbf{Warunki początkowe} & Użytkownik jest zalogowany i~posiada przynajmniej jedno konto \\ \hline
   \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami, wybór konta, kliknięcie przycisku, wprowadzenie danych oraz zatwierdzenie \\ \hline
   \textbf{Sytuacje wyjątkowe} & Niepoprawne dane \\ \hline
   \textbf{Warunki końcowe} & Edycja danych konta w~systemie \\ \hline
-\end{longtable}
+\end{tabular}\\\\
 
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -248,19 +264,25 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
   \item[10.] Powrót do kroku 7 ze~scenariusza głównego.
 \end{enumerate}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/sequence-diagram-account-edit.png}
+  \caption{Diagram sekwencji dla przypadku użycia~\ref{par:accountEdit}~--~Edycja danych konta}
+\end{figure}
+
 \paragraph{Usunięcie konta\newline}
 \label{par:accountDelete}
 Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\\
 
-\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi usunięcie konta. Dzięki temu ma~on możliwość ukrycia w~systemie kont już nieużywanych lub nieaktywnych.
+\textit{Opis słowny} -- niniejszy przypadek użycia umożliwia użytkownikowi usunięcie konta. Dzięki temu ma~on możliwość ukrycia w~systemie kont już nieużywanych lub nieaktywnych.\\
 
-\begin{longtable}{|p{5cm}|p{7cm}|}
+\begin{tabular}{|l|p{9cm}|}
   \hline \textbf{Aktor} & Użytkownik \\ \hline
   \textbf{Warunki początkowe} & Użytkownik jest zalogowany i~posiada przynajmniej jedno konto \\ \hline
   \textbf{Opis przebiegu interakcji} & Wybór strony z~kontami, wybór konta, kliknięcie przycisku oraz zatwierdzenie \\ \hline
   \textbf{Sytuacje wyjątkowe} & Anulowanie akcji \\ \hline
   \textbf{Warunki końcowe} & Usunięcie konta z~systemu \\ \hline
-\end{longtable}
+\end{tabular}\\\\
 
 \noindent \textit{Scenariusz główny:}
 \begin{enumerate}
@@ -277,6 +299,12 @@ Funkcja~specjalizująca~dla~\ref{par:accountsView}~--~Wyświetlanie listy kont.\
   \item[6.] Użytkownik wciska przycisk ,,Anuluj''.
   \item[7.] Aplikacja zamyka okno.
 \end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/sequence-diagram-account-delete.png}
+  \caption{Diagram sekwencji dla przypadku użycia~\ref{par:accountDelete}~--~Usunięcie konta}
+\end{figure}
 
 \subsubsection{Opis przypadków użycia -- transakcje}
 
