@@ -758,7 +758,11 @@ Funkcja~specjalizująca~dla~\ref{par:budgetsList}~--~Wyświetlanie budżetów.\\
 
 \subsubsection{Opis przypadków użycia -- raporty}
 
-% TODO diagram przypadków użycia - Kombajn
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/raport_usecases.png}
+  \caption{Diagram przypadków użycia związanych z~raportami.}
+\end{figure}
 
 \paragraph{Konfiguracja raportu\newline}
 \label{par:reportConfig}
@@ -849,7 +853,7 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
   \item[8.] Aplikacja zapisuje raport w~odpowiednim formacie do wybranego pliku i~zamyka okno.
 \end{enumerate}
 
-\noindent \textit{Scenariusz alternatywny~--~brak transakcji w raporcie}
+\noindent \textit{Scenariusz alternatywny~--~brak transakcji w~raporcie}
 \begin{enumerate}
   \item[1-5.] Jak w~scenariuszu głównym.
   \item[6.] Aplikacja wyświetla informację o~pustym raporcie.
@@ -886,9 +890,9 @@ Aplikacja nie może pozwalać na realizację niekompletnych operacji. W~wypadku 
 \subsubsection{Użytkowanie}
 
 \paragraph{Wieloinstancyjność\newline}
-Aplikacja powinna pozwalać wielu użytkownikom na jednoczesne zalogowanie i korzystanie z jej funkcji. Nie powinna jednak pozwalać na wiele jednoczesnych sesji tego samego użytkownika.
+Aplikacja powinna pozwalać wielu użytkownikom na jednoczesne zalogowanie i~korzystanie z~jej funkcji. Nie powinna jednak pozwalać na wiele jednoczesnych sesji tego samego użytkownika.
 
 \subsubsection{Wygląd}
 
 \paragraph{Pomoc kontekstowa\newline}
-Aplikacja powinna zawierać mechanizm wyświetlania opisów dostępnych opcji wyjaśniających ich przeznaczenie i zastosowanie.
+Aplikacja powinna zawierać mechanizm wyświetlania opisów dostępnych opcji wyjaśniających ich przeznaczenie i~zastosowanie.
