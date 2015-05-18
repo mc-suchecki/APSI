@@ -879,20 +879,40 @@ Wykorzystuje~\ref{par:login}~--~Logowanie do~aplikacji.\\
 \subsubsection{Bezpieczeństwo}
 
 \paragraph{Ograniczenia dostępu\newline}
+Priorytet: Wysoki
+
+Złożoność: Niska
+
 Aplikacja nie może pozwalać niezalogowanym użytkownikom na dostęp do danych. Użytkownicy zalogowani mogą mieć dostęp wyłącznie do transakcji własnych oraz transakcji w~budżetach zbiorczych. Ponadto użytkownicy mają możliwość edycji wyłącznie własnych transakcji.
 
 \paragraph{Zabezpieczenie przed nieautoryzowanym odczytem danych\newline}
+Priorytet: Wysoki
+
+Złożoność: Średnia
+
 Wszelkie dane przechowywane przez aplikację muszą być zabezpieczone przed odczytem i~modyfikacją bez pośrednictwa aplikacji. Dane nie powinny być przechowywane w~formacie jawnym.
 
 \paragraph{Transakcyjność\newline}
+Priorytet: Wysoki
+
+Złożoność: Średnia
+
 Aplikacja nie może pozwalać na realizację niekompletnych operacji. W~wypadku wystąpienia błędu podczas realizacji operacji dane powinny zostać przywrócone do stanu sprzed rozpoczęcia operacji. Nie powinien być możliwy jednoczesny odczyt i~zapis na tych samych danych.
 
 \subsubsection{Użytkowanie}
 
 \paragraph{Wieloinstancyjność\newline}
+Priorytet: Średni
+
+Złożoność: Niska
+
 Aplikacja powinna pozwalać wielu użytkownikom na jednoczesne zalogowanie i~korzystanie z~jej funkcji. Nie powinna jednak pozwalać na wiele jednoczesnych sesji tego samego użytkownika.
 
 \subsubsection{Wygląd}
 
 \paragraph{Pomoc kontekstowa\newline}
+Priorytet: Niski
+
+Złożoność: Niska
+
 Aplikacja powinna zawierać mechanizm wyświetlania opisów dostępnych opcji wyjaśniających ich przeznaczenie i~zastosowanie.
